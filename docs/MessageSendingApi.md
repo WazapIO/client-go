@@ -1,4 +1,4 @@
-# \MessageSendingApi
+# WhatsAPI\MessageSendingApi
 
 All URIs are relative to */api*
 

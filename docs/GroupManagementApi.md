@@ -1,4 +1,4 @@
-# \GroupManagementApi
+# WhatsAPI\GroupManagementApi
 
 All URIs are relative to */api*
 

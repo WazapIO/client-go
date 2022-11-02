@@ -1,4 +1,4 @@
-# \InstanceApi
+# WhatsAPI\InstanceApi
 
 All URIs are relative to */api*
 

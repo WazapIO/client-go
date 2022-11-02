@@ -1,4 +1,4 @@
-# \MiscellaneousApi
+# WhatsAPI\MiscellaneousApi
 
 All URIs are relative to */api*
 

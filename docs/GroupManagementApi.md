@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 ## InstancesInstanceKeyGroupsAdminGet
 
-> MainAPIResponse InstancesInstanceKeyGroupsAdminGet(ctx, instanceKey).Execute()
+> APIResponse InstancesInstanceKeyGroupsAdminGet(ctx, instanceKey).Execute()
 
 Get admin groupss.
 
@@ -53,7 +53,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsAdminGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsAdminGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsAdminGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsAdminGet`: %v\n", resp)
 }
 ```
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsCreatePost
 
-> MainAPIResponse InstancesInstanceKeyGroupsCreatePost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeyGroupsCreatePost(ctx, instanceKey).Data(data).Execute()
 
 Create group.
 
@@ -115,7 +115,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsGroupCreatePayload() // StructsGroupCreatePayload | Group create payload
+    data := *openapiclient.NewGroupCreatePayload() // GroupCreatePayload | Group create payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -124,7 +124,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsCreatePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsCreatePost`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsCreatePost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsCreatePost`: %v\n", resp)
 }
 ```
@@ -145,11 +145,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroups
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsGroupCreatePayload**](StructsGroupCreatePayload.md) | Group create payload | 
+ **data** | [**GroupCreatePayload**](GroupCreatePayload.md) | Group create payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGet
 
-> MainAPIResponse InstancesInstanceKeyGroupsGet(ctx, instanceKey).IncludeParticipants(includeParticipants).Execute()
+> APIResponse InstancesInstanceKeyGroupsGet(ctx, instanceKey).IncludeParticipants(includeParticipants).Execute()
 
 Get all groups.
 
@@ -196,7 +196,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGet`: %v\n", resp)
 }
 ```
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdAnnouncePut
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdAnnouncePut(ctx, instanceKey, announce, groupId).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdAnnouncePut(ctx, instanceKey, announce, groupId).Execute()
 
 Set group announce.
 
@@ -269,7 +269,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdAnnouncePut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdAnnouncePut`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdAnnouncePut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdAnnouncePut`: %v\n", resp)
 }
 ```
@@ -297,7 +297,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdDelete
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdDelete(ctx, instanceKey, groupId).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdDelete(ctx, instanceKey, groupId).Execute()
 
 Leaves the group.
 
@@ -344,7 +344,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdDelete`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdDelete`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDelete`: %v\n", resp)
 }
 ```
@@ -370,7 +370,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdDescriptionPut
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdDescriptionPut(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdDescriptionPut(ctx, instanceKey, groupId).Data(data).Execute()
 
 Set group description.
 
@@ -409,7 +409,7 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewStructsGroupUpdateDescriptionPayload() // StructsGroupUpdateDescriptionPayload | Group description data
+    data := *openapiclient.NewGroupUpdateDescriptionPayload() // GroupUpdateDescriptionPayload | Group description data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -418,7 +418,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDescriptionPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdDescriptionPut`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdDescriptionPut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDescriptionPut`: %v\n", resp)
 }
 ```
@@ -441,11 +441,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **data** | [**StructsGroupUpdateDescriptionPayload**](StructsGroupUpdateDescriptionPayload.md) | Group description data | 
+ **data** | [**GroupUpdateDescriptionPayload**](GroupUpdateDescriptionPayload.md) | Group description data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -463,7 +463,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdGet
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdGet(ctx, instanceKey, groupId).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdGet(ctx, instanceKey, groupId).Execute()
 
 Get group.
 
@@ -492,7 +492,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdGet`: %v\n", resp)
 }
 ```
@@ -518,7 +518,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdInviteCodeGet
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdInviteCodeGet(ctx, instanceKey, groupId).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdInviteCodeGet(ctx, instanceKey, groupId).Execute()
 
 Get group invite code.
 
@@ -565,7 +565,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdInviteCodeGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdInviteCodeGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdInviteCodeGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdInviteCodeGet`: %v\n", resp)
 }
 ```
@@ -591,7 +591,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdLockPut
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdLockPut(ctx, instanceKey, locked, groupId).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdLockPut(ctx, instanceKey, locked, groupId).Execute()
 
 Set group locked.
 
@@ -639,7 +639,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdLockPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdLockPut`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdLockPut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdLockPut`: %v\n", resp)
 }
 ```
@@ -667,7 +667,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -685,7 +685,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdNamePut
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdNamePut(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdNamePut(ctx, instanceKey, groupId).Data(data).Execute()
 
 Set group name.
 
@@ -706,7 +706,7 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewStructsGroupUpdateNamePayload() // StructsGroupUpdateNamePayload | Group name data
+    data := *openapiclient.NewGroupUpdateNamePayload() // GroupUpdateNamePayload | Group name data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -715,7 +715,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdNamePut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdNamePut`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdNamePut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdNamePut`: %v\n", resp)
 }
 ```
@@ -738,11 +738,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **data** | [**StructsGroupUpdateNamePayload**](StructsGroupUpdateNamePayload.md) | Group name data | 
+ **data** | [**GroupUpdateNamePayload**](GroupUpdateNamePayload.md) | Group name data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdParticipantsAddPost
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdParticipantsAddPost(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsAddPost(ctx, instanceKey, groupId).Data(data).Execute()
 
 Add participant.
 
@@ -781,7 +781,7 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewStructsGroupUpdateParticipantsPayload() // StructsGroupUpdateParticipantsPayload | Group update payload
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -790,7 +790,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsAddPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsAddPost`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsAddPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsAddPost`: %v\n", resp)
 }
 ```
@@ -813,11 +813,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -835,7 +835,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut(ctx, instanceKey, groupId).Data(data).Execute()
 
 Demote participant.
 
@@ -856,7 +856,7 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewStructsGroupUpdateParticipantsPayload() // StructsGroupUpdateParticipantsPayload | Group update payload
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -865,7 +865,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut`: %v\n", resp)
 }
 ```
@@ -888,11 +888,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -910,7 +910,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut(ctx, instanceKey, groupId).Data(data).Execute()
 
 Promote participant.
 
@@ -931,7 +931,7 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewStructsGroupUpdateParticipantsPayload() // StructsGroupUpdateParticipantsPayload | Group update payload
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -940,7 +940,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut`: %v\n", resp)
 }
 ```
@@ -963,11 +963,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -985,7 +985,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(ctx, instanceKey, groupId).Data(data).Execute()
 
 Remove participant.
 
@@ -1006,7 +1006,7 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewStructsGroupUpdateParticipantsPayload() // StructsGroupUpdateParticipantsPayload | Group update payload
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1015,7 +1015,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete`: %v\n", resp)
 }
 ```
@@ -1038,11 +1038,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md) | Group update payload | 
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1060,7 +1060,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsGroupIdProfilePicPut
 
-> MainAPIResponse InstancesInstanceKeyGroupsGroupIdProfilePicPut(ctx, instanceKey, groupId).InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest(instancesInstanceKeyGroupsGroupIdProfilePicPutRequest).Execute()
+> APIResponse InstancesInstanceKeyGroupsGroupIdProfilePicPut(ctx, instanceKey, groupId).InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest(instancesInstanceKeyGroupsGroupIdProfilePicPutRequest).Execute()
 
 Set group picture.
 
@@ -1090,7 +1090,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdProfilePicPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdProfilePicPut`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsGroupIdProfilePicPut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdProfilePicPut`: %v\n", resp)
 }
 ```
@@ -1117,7 +1117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1135,7 +1135,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGroupsInviteInfoGet
 
-> MainAPIResponse InstancesInstanceKeyGroupsInviteInfoGet(ctx, instanceKey).InviteLink(inviteLink).Execute()
+> APIResponse InstancesInstanceKeyGroupsInviteInfoGet(ctx, instanceKey).InviteLink(inviteLink).Execute()
 
 Get group from invite link.
 
@@ -1164,7 +1164,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsInviteInfoGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsInviteInfoGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyGroupsInviteInfoGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsInviteInfoGet`: %v\n", resp)
 }
 ```
@@ -1189,7 +1189,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

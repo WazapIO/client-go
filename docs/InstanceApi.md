@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## InstancesCreateGet
 
-> MainAPIResponse InstancesCreateGet(ctx).InstanceKey(instanceKey).Execute()
+> APIResponse InstancesCreateGet(ctx).InstanceKey(instanceKey).Execute()
 
 Creates a new instance key.
 
@@ -45,7 +45,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesCreateGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesCreateGet`: MainAPIResponse
+    // response from `InstancesCreateGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesCreateGet`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyContactsGet
 
-> MainAPIResponse InstancesInstanceKeyContactsGet(ctx, instanceKey).Execute()
+> APIResponse InstancesInstanceKeyContactsGet(ctx, instanceKey).Execute()
 
 Get contacts.
 
@@ -111,7 +111,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyContactsGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyContactsGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyContactsGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyContactsGet`: %v\n", resp)
 }
 ```
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyDeleteDelete
 
-> MainAPIResponse InstancesInstanceKeyDeleteDelete(ctx, instanceKey).Execute()
+> APIResponse InstancesInstanceKeyDeleteDelete(ctx, instanceKey).Execute()
 
 Delete Instance.
 
@@ -181,7 +181,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyDeleteDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyDeleteDelete`: MainAPIResponse
+    // response from `InstancesInstanceKeyDeleteDelete`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyDeleteDelete`: %v\n", resp)
 }
 ```
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyGet
 
-> MainAPIResponse InstancesInstanceKeyGet(ctx, instanceKey).Execute()
+> APIResponse InstancesInstanceKeyGet(ctx, instanceKey).Execute()
 
 Get Instance.
 
@@ -251,7 +251,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyGet`: %v\n", resp)
 }
 ```
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyLogoutDelete
 
-> MainAPIResponse InstancesInstanceKeyLogoutDelete(ctx, instanceKey).Execute()
+> APIResponse InstancesInstanceKeyLogoutDelete(ctx, instanceKey).Execute()
 
 Logout Instance.
 
@@ -321,7 +321,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyLogoutDelete``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyLogoutDelete`: MainAPIResponse
+    // response from `InstancesInstanceKeyLogoutDelete`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyLogoutDelete`: %v\n", resp)
 }
 ```
@@ -345,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyQrcodeGet
 
-> MainAPIResponse InstancesInstanceKeyQrcodeGet(ctx, instanceKey).Execute()
+> APIResponse InstancesInstanceKeyQrcodeGet(ctx, instanceKey).Execute()
 
 Get QrCode.
 
@@ -391,7 +391,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyQrcodeGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyQrcodeGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyQrcodeGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyQrcodeGet`: %v\n", resp)
 }
 ```
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -433,7 +433,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyWebhookPut
 
-> MainAPIResponse InstancesInstanceKeyWebhookPut(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeyWebhookPut(ctx, instanceKey).Data(data).Execute()
 
 Change Webhook url.
 
@@ -453,7 +453,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsWebhookPayload() // StructsWebhookPayload | Message data
+    data := *openapiclient.NewWebhookPayload() // WebhookPayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -462,7 +462,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyWebhookPut``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyWebhookPut`: MainAPIResponse
+    // response from `InstancesInstanceKeyWebhookPut`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyWebhookPut`: %v\n", resp)
 }
 ```
@@ -483,11 +483,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeyWebhoo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsWebhookPayload**](StructsWebhookPayload.md) | Message data | 
+ **data** | [**WebhookPayload**](WebhookPayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 
 ## InstancesListGet
 
-> MainAPIResponse InstancesListGet(ctx).Execute()
+> APIResponse InstancesListGet(ctx).Execute()
 
 Get all instances.
 
@@ -532,7 +532,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesListGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesListGet`: MainAPIResponse
+    // response from `InstancesListGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesListGet`: %v\n", resp)
 }
 ```
@@ -548,7 +548,7 @@ Other parameters are passed through a pointer to a apiInstancesListGetRequest st
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

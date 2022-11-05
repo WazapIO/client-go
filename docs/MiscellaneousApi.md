@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## InstancesInstanceKeyMiscProfilePicGet
 
-> MainAPIResponse InstancesInstanceKeyMiscProfilePicGet(ctx, instanceKey).Jid(jid).Execute()
+> APIResponse InstancesInstanceKeyMiscProfilePicGet(ctx, instanceKey).Jid(jid).Execute()
 
 Get profile pic.
 
@@ -40,7 +40,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MiscellaneousApi.InstancesInstanceKeyMiscProfilePicGet``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyMiscProfilePicGet`: MainAPIResponse
+    // response from `InstancesInstanceKeyMiscProfilePicGet`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MiscellaneousApi.InstancesInstanceKeyMiscProfilePicGet`: %v\n", resp)
 }
 ```
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeyMiscUserInfoPost
 
-> MainAPIResponse InstancesInstanceKeyMiscUserInfoPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeyMiscUserInfoPost(ctx, instanceKey).Data(data).Execute()
 
 Fetches the users info.
 
@@ -103,7 +103,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsUserInfoPayload([]string{"UserIds_example"}) // StructsUserInfoPayload | Data
+    data := *openapiclient.NewUserInfoPayload([]string{"UserIds_example"}) // UserInfoPayload | Data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -112,7 +112,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MiscellaneousApi.InstancesInstanceKeyMiscUserInfoPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyMiscUserInfoPost`: MainAPIResponse
+    // response from `InstancesInstanceKeyMiscUserInfoPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MiscellaneousApi.InstancesInstanceKeyMiscUserInfoPost`: %v\n", resp)
 }
 ```
@@ -133,11 +133,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeyMiscUs
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsUserInfoPayload**](StructsUserInfoPayload.md) | Data | 
+ **data** | [**UserInfoPayload**](UserInfoPayload.md) | Data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

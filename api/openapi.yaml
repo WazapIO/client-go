@@ -23,31 +23,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -62,31 +62,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -108,31 +108,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -154,37 +154,37 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
       summary: Fetches the catlog.
       tags:
-      - Message Sending
+      - Business Management
   /instances/{instance_key}/contacts:
     get:
       description: Fetches the list of contacts in the instance.
@@ -200,31 +200,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -246,31 +246,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -302,31 +302,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -348,31 +348,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -394,7 +394,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.GroupCreatePayload'
+              $ref: '#/components/schemas/GroupCreatePayload'
         description: Group create payload
         required: true
       responses:
@@ -402,31 +402,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -456,31 +456,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -508,31 +508,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -560,31 +560,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -622,31 +622,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -673,7 +673,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.GroupUpdateDescriptionPayload'
+              $ref: '#/components/schemas/GroupUpdateDescriptionPayload'
         description: Group description data
         required: true
       responses:
@@ -681,31 +681,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -734,31 +734,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -797,31 +797,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -848,7 +848,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.GroupUpdateNamePayload'
+              $ref: '#/components/schemas/GroupUpdateNamePayload'
         description: Group name data
         required: true
       responses:
@@ -856,31 +856,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -909,7 +909,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+              $ref: '#/components/schemas/GroupUpdateParticipantsPayload'
         description: Group update payload
         required: true
       responses:
@@ -917,31 +917,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -970,7 +970,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+              $ref: '#/components/schemas/GroupUpdateParticipantsPayload'
         description: Group update payload
         required: true
       responses:
@@ -978,31 +978,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1031,7 +1031,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+              $ref: '#/components/schemas/GroupUpdateParticipantsPayload'
         description: Group update payload
         required: true
       responses:
@@ -1039,31 +1039,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1092,7 +1092,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+              $ref: '#/components/schemas/GroupUpdateParticipantsPayload'
         description: Group update payload
         required: true
       responses:
@@ -1100,31 +1100,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1160,31 +1160,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1206,31 +1206,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1258,31 +1258,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1304,7 +1304,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.UserInfoPayload'
+              $ref: '#/components/schemas/UserInfoPayload'
         description: Data
         required: true
       responses:
@@ -1312,31 +1312,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1359,31 +1359,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1424,31 +1424,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1471,7 +1471,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.ButtonMessageWithMediaPayload'
+              $ref: '#/components/schemas/ButtonMessageWithMediaPayload'
         description: Message data
         required: true
       responses:
@@ -1479,31 +1479,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1526,7 +1526,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.ButtonMessagePayload'
+              $ref: '#/components/schemas/ButtonMessagePayload'
         description: Message data
         required: true
       responses:
@@ -1534,31 +1534,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1580,7 +1580,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.ContactMessagePayload'
+              $ref: '#/components/schemas/ContactMessagePayload'
         description: Message data
         required: true
       responses:
@@ -1588,31 +1588,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1654,31 +1654,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1719,31 +1719,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1764,7 +1764,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.ListMessagePayload'
+              $ref: '#/components/schemas/ListMessagePayload'
         description: Message data
         required: true
       responses:
@@ -1772,31 +1772,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1820,7 +1820,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.LocationMessagePayload'
+              $ref: '#/components/schemas/LocationMessagePayload'
         description: Message data
         required: true
       responses:
@@ -1828,31 +1828,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1874,7 +1874,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.SendMediaPayload'
+              $ref: '#/components/schemas/SendMediaPayload'
         description: Message data
         required: true
       responses:
@@ -1882,31 +1882,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -1917,7 +1917,7 @@ paths:
   /instances/{instance_key}/send/poll:
     post:
       description: |-
-        Sends an interactive poll message with a media header to the given user.
+        Sends an interactive poll message to the given user.
         The poll message is a new feature that is currently in beta.
       parameters:
       - description: Instance key
@@ -1930,7 +1930,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.PollMessagePayload'
+              $ref: '#/components/schemas/PollMessagePayload'
         description: Message data
         required: true
       responses:
@@ -1938,35 +1938,35 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
-      summary: Send a Poll message with media.
+      summary: Send a Poll message.
       tags:
       - Message Sending
       x-codegen-request-body-name: data
@@ -1986,7 +1986,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.TemplateButtonPayload'
+              $ref: '#/components/schemas/TemplateButtonPayload'
         description: Message data
         required: true
       responses:
@@ -1994,31 +1994,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -2042,7 +2042,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.TemplateButtonWithMediaPayload'
+              $ref: '#/components/schemas/TemplateButtonWithMediaPayload'
         description: Message data
         required: true
       responses:
@@ -2050,31 +2050,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -2096,7 +2096,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.TextMessage'
+              $ref: '#/components/schemas/TextMessage'
         description: Message data
         required: true
       responses:
@@ -2104,31 +2104,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -2170,31 +2170,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -2235,31 +2235,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -2280,7 +2280,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/structs.WebhookPayload'
+              $ref: '#/components/schemas/WebhookPayload'
         description: Message data
         required: true
       responses:
@@ -2288,31 +2288,31 @@ paths:
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Success
         "400":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Bad Request
         "401":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Unauthorized
         "404":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Instance not found
         "500":
           content:
             '*/*':
               schema:
-                $ref: '#/components/schemas/main.APIResponse'
+                $ref: '#/components/schemas/APIResponse'
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
@@ -2322,7 +2322,7 @@ paths:
       x-codegen-request-body-name: data
 components:
   schemas:
-    main.APIResponse:
+    APIResponse:
       example:
         data: "{}"
         error: true
@@ -2338,11 +2338,21 @@ components:
         status:
           type: integer
       type: object
-    structs.ButtonMessagePayload:
+    ButtonMessagePayload:
+      example:
+        buttons:
+        - button_id: button_id
+          button_text: button_text
+        - button_id: button_id
+          button_text: button_text
+        footer_text: footer_text
+        header_text: header_text
+        text: text
+        to: to
       properties:
         buttons:
           items:
-            $ref: '#/components/schemas/structs.ReplyButton'
+            $ref: '#/components/schemas/ReplyButton'
           type: array
         footer_text:
           type: string
@@ -2353,32 +2363,75 @@ components:
         to:
           type: string
       type: object
-    structs.ButtonMessageWithMediaPayload:
+    ButtonMessageWithMediaPayload:
+      example:
+        buttons:
+        - button_id: button_id
+          button_text: button_text
+        - button_id: button_id
+          button_text: button_text
+        footer_text: footer_text
+        text: text
+        to: to
+        media_data:
+          direct_path: direct_path
+          mime_type: mime_type
+          file_enc_sha256:
+          - 0
+          - 0
+          file_length: 6
+          file_sha256:
+          - 1
+          - 1
+          media_key:
+          - 5
+          - 5
+          url: url
       properties:
         buttons:
           items:
-            $ref: '#/components/schemas/structs.ReplyButton'
+            $ref: '#/components/schemas/ReplyButton'
           type: array
         footer_text:
           type: string
         media_data:
-          $ref: '#/components/schemas/structs.FileUpload'
+          $ref: '#/components/schemas/FileUpload'
         text:
           type: string
         to:
           type: string
       type: object
-    structs.ContactMessagePayload:
+    ContactMessagePayload:
+      example:
+        to: to
+        vcard:
+          full_name: full_name
+          phone: phone
+          organization: organization
       properties:
         to:
           type: string
         vcard:
-          $ref: '#/components/schemas/structs_ContactMessagePayload_vcard'
+          $ref: '#/components/schemas/ContactMessagePayload_vcard'
       required:
       - to
       - vcard
       type: object
-    structs.FileUpload:
+    FileUpload:
+      example:
+        direct_path: direct_path
+        mime_type: mime_type
+        file_enc_sha256:
+        - 0
+        - 0
+        file_length: 6
+        file_sha256:
+        - 1
+        - 1
+        media_key:
+        - 5
+        - 5
+        url: url
       properties:
         direct_path:
           type: string
@@ -2409,7 +2462,12 @@ components:
       - mime_type
       - url
       type: object
-    structs.GroupCreatePayload:
+    GroupCreatePayload:
+      example:
+        group_name: group_name
+        participants:
+        - participants
+        - participants
       properties:
         group_name:
           type: string
@@ -2418,24 +2476,36 @@ components:
             type: string
           type: array
       type: object
-    structs.GroupUpdateDescriptionPayload:
+    GroupUpdateDescriptionPayload:
+      example:
+        description: description
       properties:
         description:
           type: string
       type: object
-    structs.GroupUpdateNamePayload:
+    GroupUpdateNamePayload:
+      example:
+        name: name
       properties:
         name:
           type: string
       type: object
-    structs.GroupUpdateParticipantsPayload:
+    GroupUpdateParticipantsPayload:
+      example:
+        participants:
+        - participants
+        - participants
       properties:
         participants:
           items:
             type: string
           type: array
       type: object
-    structs.ListItem:
+    ListItem:
+      example:
+        description: description
+        row_id: row_id
+        title: title
       properties:
         description:
           type: string
@@ -2446,7 +2516,31 @@ components:
       required:
       - title
       type: object
-    structs.ListMessagePayload:
+    ListMessagePayload:
+      example:
+        multi_select: true
+        description: description
+        button_text: button_text
+        text: text
+        to: to
+        title: title
+        sections:
+        - rows:
+          - description: description
+            row_id: row_id
+            title: title
+          - description: description
+            row_id: row_id
+            title: title
+          title: title
+        - rows:
+          - description: description
+            row_id: row_id
+            title: title
+          - description: description
+            row_id: row_id
+            title: title
+          title: title
       properties:
         button_text:
           type: string
@@ -2456,7 +2550,7 @@ components:
           type: boolean
         sections:
           items:
-            $ref: '#/components/schemas/structs.ListSection'
+            $ref: '#/components/schemas/ListSection'
           type: array
         text:
           type: string
@@ -2468,11 +2562,20 @@ components:
       - sections
       - to
       type: object
-    structs.ListSection:
+    ListSection:
+      example:
+        rows:
+        - description: description
+          row_id: row_id
+          title: title
+        - description: description
+          row_id: row_id
+          title: title
+        title: title
       properties:
         rows:
           items:
-            $ref: '#/components/schemas/structs.ListItem'
+            $ref: '#/components/schemas/ListItem'
           type: array
         title:
           type: string
@@ -2480,10 +2583,18 @@ components:
       - rows
       - title
       type: object
-    structs.LocationMessagePayload:
+    LocationMessagePayload:
+      example:
+        location:
+          address: address
+          latitude: 0.8008281904610115
+          name: name
+          longitude: 6.027456183070403
+        to: to
+        url: url
       properties:
         location:
-          $ref: '#/components/schemas/structs_LocationMessagePayload_location'
+          $ref: '#/components/schemas/LocationMessagePayload_location'
         to:
           type: string
         url:
@@ -2492,7 +2603,14 @@ components:
       - location
       - to
       type: object
-    structs.PollMessagePayload:
+    PollMessagePayload:
+      example:
+        options:
+        - options
+        - options
+        selectable_options_count: 0
+        to: to
+        title: title
       properties:
         options:
           items:
@@ -2510,21 +2628,43 @@ components:
       - title
       - to
       type: object
-    structs.ReplyButton:
+    ReplyButton:
+      example:
+        button_id: button_id
+        button_text: button_text
       properties:
         button_id:
           type: string
         button_text:
           type: string
       type: object
-    structs.SendMediaPayload:
+    SendMediaPayload:
+      example:
+        filename: filename
+        media_type: media_type
+        caption: caption
+        to: to
+        media_data:
+          direct_path: direct_path
+          mime_type: mime_type
+          file_enc_sha256:
+          - 0
+          - 0
+          file_length: 6
+          file_sha256:
+          - 1
+          - 1
+          media_key:
+          - 5
+          - 5
+          url: url
       properties:
         caption:
           type: string
         filename:
           type: string
         media_data:
-          $ref: '#/components/schemas/structs.FileUpload'
+          $ref: '#/components/schemas/FileUpload'
         media_type:
           type: string
         to:
@@ -2534,7 +2674,12 @@ components:
       - media_type
       - to
       type: object
-    structs.TemplateButton:
+    TemplateButton:
+      example:
+        payload: payload
+        button_id: button_id
+        title: title
+        type: type
       properties:
         button_id:
           description: Make sure this is unique
@@ -2550,11 +2695,25 @@ components:
       - title
       - type
       type: object
-    structs.TemplateButtonPayload:
+    TemplateButtonPayload:
+      example:
+        buttons:
+        - payload: payload
+          button_id: button_id
+          title: title
+          type: type
+        - payload: payload
+          button_id: button_id
+          title: title
+          type: type
+        footer: footer
+        content_text: content_text
+        header: header
+        to: to
       properties:
         buttons:
           items:
-            $ref: '#/components/schemas/structs.TemplateButton'
+            $ref: '#/components/schemas/TemplateButton'
           type: array
         content_text:
           type: string
@@ -2568,18 +2727,45 @@ components:
       - buttons
       - to
       type: object
-    structs.TemplateButtonWithMediaPayload:
+    TemplateButtonWithMediaPayload:
+      example:
+        buttons:
+        - payload: payload
+          button_id: button_id
+          title: title
+          type: type
+        - payload: payload
+          button_id: button_id
+          title: title
+          type: type
+        footer: footer
+        content_text: content_text
+        media:
+          direct_path: direct_path
+          mime_type: mime_type
+          file_enc_sha256:
+          - 0
+          - 0
+          file_length: 6
+          file_sha256:
+          - 1
+          - 1
+          media_key:
+          - 5
+          - 5
+          url: url
+        to: to
       properties:
         buttons:
           items:
-            $ref: '#/components/schemas/structs.TemplateButton'
+            $ref: '#/components/schemas/TemplateButton'
           type: array
         content_text:
           type: string
         footer:
           type: string
         media:
-          $ref: '#/components/schemas/structs.FileUpload'
+          $ref: '#/components/schemas/FileUpload'
         to:
           type: string
       required:
@@ -2587,7 +2773,10 @@ components:
       - media
       - to
       type: object
-    structs.TextMessage:
+    TextMessage:
+      example:
+        text: text
+        to: to
       properties:
         text:
           type: string
@@ -2597,7 +2786,11 @@ components:
       - text
       - to
       type: object
-    structs.UserInfoPayload:
+    UserInfoPayload:
+      example:
+        user_ids:
+        - user_ids
+        - user_ids
       properties:
         user_ids:
           items:
@@ -2606,7 +2799,9 @@ components:
       required:
       - user_ids
       type: object
-    structs.WebhookPayload:
+    WebhookPayload:
+      example:
+        webhook_url: webhook_url
       properties:
         webhook_url:
           type: string
@@ -2665,7 +2860,11 @@ components:
       required:
       - file
       type: object
-    structs_ContactMessagePayload_vcard:
+    ContactMessagePayload_vcard:
+      example:
+        full_name: full_name
+        phone: phone
+        organization: organization
       properties:
         full_name:
           type: string
@@ -2674,7 +2873,12 @@ components:
         phone:
           type: string
       type: object
-    structs_LocationMessagePayload_location:
+    LocationMessagePayload_location:
+      example:
+        address: address
+        latitude: 0.8008281904610115
+        name: name
+        longitude: 6.027456183070403
       properties:
         address:
           type: string

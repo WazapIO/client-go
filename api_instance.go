@@ -36,7 +36,7 @@ func (r ApiInstancesCreateGetRequest) InstanceKey(instanceKey string) ApiInstanc
 	return r
 }
 
-func (r ApiInstancesCreateGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesCreateGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesCreateGetExecute(r)
 }
 
@@ -56,13 +56,13 @@ func (a *InstanceApiService) InstancesCreateGet(ctx context.Context) ApiInstance
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesCreateGetExecute(r ApiInstancesCreateGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesCreateGetExecute(r ApiInstancesCreateGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesCreateGet")
@@ -133,7 +133,7 @@ func (a *InstanceApiService) InstancesCreateGetExecute(r ApiInstancesCreateGetRe
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -144,7 +144,7 @@ func (a *InstanceApiService) InstancesCreateGetExecute(r ApiInstancesCreateGetRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -155,7 +155,7 @@ func (a *InstanceApiService) InstancesCreateGetExecute(r ApiInstancesCreateGetRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -166,7 +166,7 @@ func (a *InstanceApiService) InstancesCreateGetExecute(r ApiInstancesCreateGetRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -196,7 +196,7 @@ type ApiInstancesInstanceKeyContactsGetRequest struct {
 	instanceKey string
 }
 
-func (r ApiInstancesInstanceKeyContactsGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyContactsGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyContactsGetExecute(r)
 }
 
@@ -218,13 +218,13 @@ func (a *InstanceApiService) InstancesInstanceKeyContactsGet(ctx context.Context
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesInstanceKeyContactsGetExecute(r ApiInstancesInstanceKeyContactsGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesInstanceKeyContactsGetExecute(r ApiInstancesInstanceKeyContactsGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesInstanceKeyContactsGet")
@@ -293,7 +293,7 @@ func (a *InstanceApiService) InstancesInstanceKeyContactsGetExecute(r ApiInstanc
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -304,7 +304,7 @@ func (a *InstanceApiService) InstancesInstanceKeyContactsGetExecute(r ApiInstanc
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -315,7 +315,7 @@ func (a *InstanceApiService) InstancesInstanceKeyContactsGetExecute(r ApiInstanc
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -326,7 +326,7 @@ func (a *InstanceApiService) InstancesInstanceKeyContactsGetExecute(r ApiInstanc
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -356,7 +356,7 @@ type ApiInstancesInstanceKeyDeleteDeleteRequest struct {
 	instanceKey string
 }
 
-func (r ApiInstancesInstanceKeyDeleteDeleteRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyDeleteDeleteRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyDeleteDeleteExecute(r)
 }
 
@@ -378,13 +378,13 @@ func (a *InstanceApiService) InstancesInstanceKeyDeleteDelete(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesInstanceKeyDeleteDeleteExecute(r ApiInstancesInstanceKeyDeleteDeleteRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesInstanceKeyDeleteDeleteExecute(r ApiInstancesInstanceKeyDeleteDeleteRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesInstanceKeyDeleteDelete")
@@ -453,7 +453,7 @@ func (a *InstanceApiService) InstancesInstanceKeyDeleteDeleteExecute(r ApiInstan
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -464,7 +464,7 @@ func (a *InstanceApiService) InstancesInstanceKeyDeleteDeleteExecute(r ApiInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -475,7 +475,7 @@ func (a *InstanceApiService) InstancesInstanceKeyDeleteDeleteExecute(r ApiInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -486,7 +486,7 @@ func (a *InstanceApiService) InstancesInstanceKeyDeleteDeleteExecute(r ApiInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -516,7 +516,7 @@ type ApiInstancesInstanceKeyGetRequest struct {
 	instanceKey string
 }
 
-func (r ApiInstancesInstanceKeyGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGetExecute(r)
 }
 
@@ -538,13 +538,13 @@ func (a *InstanceApiService) InstancesInstanceKeyGet(ctx context.Context, instan
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesInstanceKeyGetExecute(r ApiInstancesInstanceKeyGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesInstanceKeyGetExecute(r ApiInstancesInstanceKeyGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesInstanceKeyGet")
@@ -613,7 +613,7 @@ func (a *InstanceApiService) InstancesInstanceKeyGetExecute(r ApiInstancesInstan
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -624,7 +624,7 @@ func (a *InstanceApiService) InstancesInstanceKeyGetExecute(r ApiInstancesInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -635,7 +635,7 @@ func (a *InstanceApiService) InstancesInstanceKeyGetExecute(r ApiInstancesInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -646,7 +646,7 @@ func (a *InstanceApiService) InstancesInstanceKeyGetExecute(r ApiInstancesInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -676,7 +676,7 @@ type ApiInstancesInstanceKeyLogoutDeleteRequest struct {
 	instanceKey string
 }
 
-func (r ApiInstancesInstanceKeyLogoutDeleteRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyLogoutDeleteRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyLogoutDeleteExecute(r)
 }
 
@@ -698,13 +698,13 @@ func (a *InstanceApiService) InstancesInstanceKeyLogoutDelete(ctx context.Contex
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesInstanceKeyLogoutDeleteExecute(r ApiInstancesInstanceKeyLogoutDeleteRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesInstanceKeyLogoutDeleteExecute(r ApiInstancesInstanceKeyLogoutDeleteRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesInstanceKeyLogoutDelete")
@@ -773,7 +773,7 @@ func (a *InstanceApiService) InstancesInstanceKeyLogoutDeleteExecute(r ApiInstan
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -784,7 +784,7 @@ func (a *InstanceApiService) InstancesInstanceKeyLogoutDeleteExecute(r ApiInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -795,7 +795,7 @@ func (a *InstanceApiService) InstancesInstanceKeyLogoutDeleteExecute(r ApiInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -806,7 +806,7 @@ func (a *InstanceApiService) InstancesInstanceKeyLogoutDeleteExecute(r ApiInstan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -836,7 +836,7 @@ type ApiInstancesInstanceKeyQrcodeGetRequest struct {
 	instanceKey string
 }
 
-func (r ApiInstancesInstanceKeyQrcodeGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyQrcodeGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyQrcodeGetExecute(r)
 }
 
@@ -858,13 +858,13 @@ func (a *InstanceApiService) InstancesInstanceKeyQrcodeGet(ctx context.Context, 
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesInstanceKeyQrcodeGetExecute(r ApiInstancesInstanceKeyQrcodeGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesInstanceKeyQrcodeGetExecute(r ApiInstancesInstanceKeyQrcodeGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesInstanceKeyQrcodeGet")
@@ -933,7 +933,7 @@ func (a *InstanceApiService) InstancesInstanceKeyQrcodeGetExecute(r ApiInstances
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -944,7 +944,7 @@ func (a *InstanceApiService) InstancesInstanceKeyQrcodeGetExecute(r ApiInstances
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -955,7 +955,7 @@ func (a *InstanceApiService) InstancesInstanceKeyQrcodeGetExecute(r ApiInstances
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -966,7 +966,7 @@ func (a *InstanceApiService) InstancesInstanceKeyQrcodeGetExecute(r ApiInstances
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -994,16 +994,16 @@ type ApiInstancesInstanceKeyWebhookPutRequest struct {
 	ctx context.Context
 	ApiService *InstanceApiService
 	instanceKey string
-	data *StructsWebhookPayload
+	data *WebhookPayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeyWebhookPutRequest) Data(data StructsWebhookPayload) ApiInstancesInstanceKeyWebhookPutRequest {
+func (r ApiInstancesInstanceKeyWebhookPutRequest) Data(data WebhookPayload) ApiInstancesInstanceKeyWebhookPutRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyWebhookPutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyWebhookPutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyWebhookPutExecute(r)
 }
 
@@ -1025,13 +1025,13 @@ func (a *InstanceApiService) InstancesInstanceKeyWebhookPut(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesInstanceKeyWebhookPutExecute(r ApiInstancesInstanceKeyWebhookPutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesInstanceKeyWebhookPutExecute(r ApiInstancesInstanceKeyWebhookPutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesInstanceKeyWebhookPut")
@@ -1105,7 +1105,7 @@ func (a *InstanceApiService) InstancesInstanceKeyWebhookPutExecute(r ApiInstance
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1116,7 +1116,7 @@ func (a *InstanceApiService) InstancesInstanceKeyWebhookPutExecute(r ApiInstance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1127,7 +1127,7 @@ func (a *InstanceApiService) InstancesInstanceKeyWebhookPutExecute(r ApiInstance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1138,7 +1138,7 @@ func (a *InstanceApiService) InstancesInstanceKeyWebhookPutExecute(r ApiInstance
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1167,7 +1167,7 @@ type ApiInstancesListGetRequest struct {
 	ApiService *InstanceApiService
 }
 
-func (r ApiInstancesListGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesListGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesListGetExecute(r)
 }
 
@@ -1187,13 +1187,13 @@ func (a *InstanceApiService) InstancesListGet(ctx context.Context) ApiInstancesL
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *InstanceApiService) InstancesListGetExecute(r ApiInstancesListGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *InstanceApiService) InstancesListGetExecute(r ApiInstancesListGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstanceApiService.InstancesListGet")
@@ -1261,7 +1261,7 @@ func (a *InstanceApiService) InstancesListGetExecute(r ApiInstancesListGetReques
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1272,7 +1272,7 @@ func (a *InstanceApiService) InstancesListGetExecute(r ApiInstancesListGetReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1283,7 +1283,7 @@ func (a *InstanceApiService) InstancesListGetExecute(r ApiInstancesListGetReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1294,7 +1294,7 @@ func (a *InstanceApiService) InstancesListGetExecute(r ApiInstancesListGetReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

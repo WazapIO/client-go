@@ -24,166 +24,6 @@ import (
 // MessageSendingApiService MessageSendingApi service
 type MessageSendingApiService service
 
-type ApiInstancesInstanceKeyBusinessCatalogGetRequest struct {
-	ctx context.Context
-	ApiService *MessageSendingApiService
-	instanceKey string
-}
-
-func (r ApiInstancesInstanceKeyBusinessCatalogGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeyBusinessCatalogGetExecute(r)
-}
-
-/*
-InstancesInstanceKeyBusinessCatalogGet Fetches the catlog.
-
-Gets list of all products registered by you.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceKey Instance key
- @return ApiInstancesInstanceKeyBusinessCatalogGetRequest
-*/
-func (a *MessageSendingApiService) InstancesInstanceKeyBusinessCatalogGet(ctx context.Context, instanceKey string) ApiInstancesInstanceKeyBusinessCatalogGetRequest {
-	return ApiInstancesInstanceKeyBusinessCatalogGetRequest{
-		ApiService: a,
-		ctx: ctx,
-		instanceKey: instanceKey,
-	}
-}
-
-// Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeyBusinessCatalogGetExecute(r ApiInstancesInstanceKeyBusinessCatalogGetRequest) (*MainAPIResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeyBusinessCatalogGet")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/instances/{instance_key}/business/catalog"
-	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"*/*"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKeyAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
 type ApiInstancesInstanceKeySendAudioPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
@@ -210,7 +50,7 @@ func (r ApiInstancesInstanceKeySendAudioPostRequest) Caption(caption string) Api
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendAudioPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendAudioPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendAudioPostExecute(r)
 }
 
@@ -233,13 +73,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPost(ctx context
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r ApiInstancesInstanceKeySendAudioPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r ApiInstancesInstanceKeySendAudioPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendAudioPost")
@@ -320,7 +160,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -331,7 +171,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -342,7 +182,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -353,7 +193,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -381,16 +221,16 @@ type ApiInstancesInstanceKeySendButtonMediaPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsButtonMessageWithMediaPayload
+	data *ButtonMessageWithMediaPayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendButtonMediaPostRequest) Data(data StructsButtonMessageWithMediaPayload) ApiInstancesInstanceKeySendButtonMediaPostRequest {
+func (r ApiInstancesInstanceKeySendButtonMediaPostRequest) Data(data ButtonMessageWithMediaPayload) ApiInstancesInstanceKeySendButtonMediaPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendButtonMediaPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendButtonMediaPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendButtonMediaPostExecute(r)
 }
 
@@ -413,13 +253,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPost(ctx c
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPostExecute(r ApiInstancesInstanceKeySendButtonMediaPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPostExecute(r ApiInstancesInstanceKeySendButtonMediaPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendButtonMediaPost")
@@ -493,7 +333,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPostExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -504,7 +344,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPostExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -515,7 +355,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPostExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -526,7 +366,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPostExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -554,16 +394,16 @@ type ApiInstancesInstanceKeySendButtonsPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsButtonMessagePayload
+	data *ButtonMessagePayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendButtonsPostRequest) Data(data StructsButtonMessagePayload) ApiInstancesInstanceKeySendButtonsPostRequest {
+func (r ApiInstancesInstanceKeySendButtonsPostRequest) Data(data ButtonMessagePayload) ApiInstancesInstanceKeySendButtonsPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendButtonsPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendButtonsPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendButtonsPostExecute(r)
 }
 
@@ -585,13 +425,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPost(ctx conte
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r ApiInstancesInstanceKeySendButtonsPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r ApiInstancesInstanceKeySendButtonsPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendButtonsPost")
@@ -665,7 +505,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -676,7 +516,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -687,7 +527,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -698,7 +538,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -726,16 +566,16 @@ type ApiInstancesInstanceKeySendContactPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsContactMessagePayload
+	data *ContactMessagePayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendContactPostRequest) Data(data StructsContactMessagePayload) ApiInstancesInstanceKeySendContactPostRequest {
+func (r ApiInstancesInstanceKeySendContactPostRequest) Data(data ContactMessagePayload) ApiInstancesInstanceKeySendContactPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendContactPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendContactPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendContactPostExecute(r)
 }
 
@@ -757,13 +597,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPost(ctx conte
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r ApiInstancesInstanceKeySendContactPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r ApiInstancesInstanceKeySendContactPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendContactPost")
@@ -837,7 +677,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -848,7 +688,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -859,7 +699,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -870,7 +710,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -920,7 +760,7 @@ func (r ApiInstancesInstanceKeySendDocumentPostRequest) Caption(caption string) 
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendDocumentPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendDocumentPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendDocumentPostExecute(r)
 }
 
@@ -943,13 +783,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPost(ctx cont
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r ApiInstancesInstanceKeySendDocumentPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r ApiInstancesInstanceKeySendDocumentPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendDocumentPost")
@@ -1030,7 +870,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1041,7 +881,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1052,7 +892,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1063,7 +903,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1113,7 +953,7 @@ func (r ApiInstancesInstanceKeySendImagePostRequest) Caption(caption string) Api
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendImagePostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendImagePostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendImagePostExecute(r)
 }
 
@@ -1136,13 +976,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePost(ctx context
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r ApiInstancesInstanceKeySendImagePostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r ApiInstancesInstanceKeySendImagePostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendImagePost")
@@ -1223,7 +1063,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1234,7 +1074,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1245,7 +1085,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1256,7 +1096,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1284,16 +1124,16 @@ type ApiInstancesInstanceKeySendListPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsListMessagePayload
+	data *ListMessagePayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendListPostRequest) Data(data StructsListMessagePayload) ApiInstancesInstanceKeySendListPostRequest {
+func (r ApiInstancesInstanceKeySendListPostRequest) Data(data ListMessagePayload) ApiInstancesInstanceKeySendListPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendListPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendListPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendListPostExecute(r)
 }
 
@@ -1315,13 +1155,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPost(ctx context.
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r ApiInstancesInstanceKeySendListPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r ApiInstancesInstanceKeySendListPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendListPost")
@@ -1395,7 +1235,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1406,7 +1246,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1417,7 +1257,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1428,7 +1268,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1456,16 +1296,16 @@ type ApiInstancesInstanceKeySendLocationPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsLocationMessagePayload
+	data *LocationMessagePayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendLocationPostRequest) Data(data StructsLocationMessagePayload) ApiInstancesInstanceKeySendLocationPostRequest {
+func (r ApiInstancesInstanceKeySendLocationPostRequest) Data(data LocationMessagePayload) ApiInstancesInstanceKeySendLocationPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendLocationPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendLocationPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendLocationPostExecute(r)
 }
 
@@ -1488,13 +1328,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPost(ctx cont
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r ApiInstancesInstanceKeySendLocationPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r ApiInstancesInstanceKeySendLocationPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendLocationPost")
@@ -1568,7 +1408,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1579,7 +1419,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1590,7 +1430,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1601,7 +1441,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1629,16 +1469,16 @@ type ApiInstancesInstanceKeySendMediaPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsSendMediaPayload
+	data *SendMediaPayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendMediaPostRequest) Data(data StructsSendMediaPayload) ApiInstancesInstanceKeySendMediaPostRequest {
+func (r ApiInstancesInstanceKeySendMediaPostRequest) Data(data SendMediaPayload) ApiInstancesInstanceKeySendMediaPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendMediaPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendMediaPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendMediaPostExecute(r)
 }
 
@@ -1660,13 +1500,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPost(ctx context
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r ApiInstancesInstanceKeySendMediaPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r ApiInstancesInstanceKeySendMediaPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendMediaPost")
@@ -1740,7 +1580,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1751,7 +1591,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1762,7 +1602,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1773,7 +1613,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1801,23 +1641,23 @@ type ApiInstancesInstanceKeySendPollPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsPollMessagePayload
+	data *PollMessagePayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendPollPostRequest) Data(data StructsPollMessagePayload) ApiInstancesInstanceKeySendPollPostRequest {
+func (r ApiInstancesInstanceKeySendPollPostRequest) Data(data PollMessagePayload) ApiInstancesInstanceKeySendPollPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendPollPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendPollPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendPollPostExecute(r)
 }
 
 /*
-InstancesInstanceKeySendPollPost Send a Poll message with media.
+InstancesInstanceKeySendPollPost Send a Poll message.
 
-Sends an interactive poll message with a media header to the given user.
+Sends an interactive poll message to the given user.
 The poll message is a new feature that is currently in beta.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
@@ -1833,13 +1673,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPost(ctx context.
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r ApiInstancesInstanceKeySendPollPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r ApiInstancesInstanceKeySendPollPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendPollPost")
@@ -1913,7 +1753,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1924,7 +1764,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1935,7 +1775,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1946,7 +1786,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1974,16 +1814,16 @@ type ApiInstancesInstanceKeySendTemplateMediaPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsTemplateButtonWithMediaPayload
+	data *TemplateButtonWithMediaPayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendTemplateMediaPostRequest) Data(data StructsTemplateButtonWithMediaPayload) ApiInstancesInstanceKeySendTemplateMediaPostRequest {
+func (r ApiInstancesInstanceKeySendTemplateMediaPostRequest) Data(data TemplateButtonWithMediaPayload) ApiInstancesInstanceKeySendTemplateMediaPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendTemplateMediaPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendTemplateMediaPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendTemplateMediaPostExecute(r)
 }
 
@@ -2006,13 +1846,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPost(ctx
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPostExecute(r ApiInstancesInstanceKeySendTemplateMediaPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPostExecute(r ApiInstancesInstanceKeySendTemplateMediaPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendTemplateMediaPost")
@@ -2086,7 +1926,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPostExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2097,7 +1937,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2108,7 +1948,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2119,7 +1959,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPostExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2147,16 +1987,16 @@ type ApiInstancesInstanceKeySendTemplatePostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsTemplateButtonPayload
+	data *TemplateButtonPayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendTemplatePostRequest) Data(data StructsTemplateButtonPayload) ApiInstancesInstanceKeySendTemplatePostRequest {
+func (r ApiInstancesInstanceKeySendTemplatePostRequest) Data(data TemplateButtonPayload) ApiInstancesInstanceKeySendTemplatePostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendTemplatePostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendTemplatePostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendTemplatePostExecute(r)
 }
 
@@ -2179,13 +2019,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePost(ctx cont
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r ApiInstancesInstanceKeySendTemplatePostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r ApiInstancesInstanceKeySendTemplatePostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendTemplatePost")
@@ -2259,7 +2099,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2270,7 +2110,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2281,7 +2121,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2292,7 +2132,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2320,16 +2160,16 @@ type ApiInstancesInstanceKeySendTextPostRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *StructsTextMessage
+	data *TextMessage
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendTextPostRequest) Data(data StructsTextMessage) ApiInstancesInstanceKeySendTextPostRequest {
+func (r ApiInstancesInstanceKeySendTextPostRequest) Data(data TextMessage) ApiInstancesInstanceKeySendTextPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendTextPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendTextPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendTextPostExecute(r)
 }
 
@@ -2351,13 +2191,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPost(ctx context.
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r ApiInstancesInstanceKeySendTextPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r ApiInstancesInstanceKeySendTextPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendTextPost")
@@ -2431,7 +2271,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r Api
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2442,7 +2282,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2453,7 +2293,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2464,7 +2304,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2507,7 +2347,7 @@ func (r ApiInstancesInstanceKeySendUploadPostRequest) InstancesInstanceKeySendUp
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendUploadPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendUploadPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendUploadPostExecute(r)
 }
 
@@ -2530,13 +2370,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPost(ctx contex
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r ApiInstancesInstanceKeySendUploadPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r ApiInstancesInstanceKeySendUploadPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendUploadPost")
@@ -2614,7 +2454,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r A
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2625,7 +2465,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2636,7 +2476,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2647,7 +2487,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r A
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2697,7 +2537,7 @@ func (r ApiInstancesInstanceKeySendVideoPostRequest) Caption(caption string) Api
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendVideoPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeySendVideoPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeySendVideoPostExecute(r)
 }
 
@@ -2720,13 +2560,13 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPost(ctx context
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r ApiInstancesInstanceKeySendVideoPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r ApiInstancesInstanceKeySendVideoPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendVideoPost")
@@ -2807,7 +2647,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r Ap
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2818,7 +2658,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2829,7 +2669,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2840,7 +2680,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

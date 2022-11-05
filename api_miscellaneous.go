@@ -37,7 +37,7 @@ func (r ApiInstancesInstanceKeyMiscProfilePicGetRequest) Jid(jid string) ApiInst
 	return r
 }
 
-func (r ApiInstancesInstanceKeyMiscProfilePicGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyMiscProfilePicGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyMiscProfilePicGetExecute(r)
 }
 
@@ -59,13 +59,13 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGet(ctx cont
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r ApiInstancesInstanceKeyMiscProfilePicGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r ApiInstancesInstanceKeyMiscProfilePicGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscellaneousApiService.InstancesInstanceKeyMiscProfilePicGet")
@@ -138,7 +138,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -149,7 +149,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -160,7 +160,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -171,7 +171,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -199,16 +199,16 @@ type ApiInstancesInstanceKeyMiscUserInfoPostRequest struct {
 	ctx context.Context
 	ApiService *MiscellaneousApiService
 	instanceKey string
-	data *StructsUserInfoPayload
+	data *UserInfoPayload
 }
 
 // Data
-func (r ApiInstancesInstanceKeyMiscUserInfoPostRequest) Data(data StructsUserInfoPayload) ApiInstancesInstanceKeyMiscUserInfoPostRequest {
+func (r ApiInstancesInstanceKeyMiscUserInfoPostRequest) Data(data UserInfoPayload) ApiInstancesInstanceKeyMiscUserInfoPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyMiscUserInfoPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyMiscUserInfoPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyMiscUserInfoPostExecute(r)
 }
 
@@ -230,13 +230,13 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPost(ctx conte
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r ApiInstancesInstanceKeyMiscUserInfoPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r ApiInstancesInstanceKeyMiscUserInfoPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscellaneousApiService.InstancesInstanceKeyMiscUserInfoPost")
@@ -310,7 +310,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -321,7 +321,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -332,7 +332,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -343,7 +343,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

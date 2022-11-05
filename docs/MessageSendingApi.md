@@ -4,7 +4,6 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**InstancesInstanceKeyBusinessCatalogGet**](MessageSendingApi.md#InstancesInstanceKeyBusinessCatalogGet) | **Get** /instances/{instance_key}/business/catalog | Fetches the catlog.
 [**InstancesInstanceKeySendAudioPost**](MessageSendingApi.md#InstancesInstanceKeySendAudioPost) | **Post** /instances/{instance_key}/send/audio | Send raw audio.
 [**InstancesInstanceKeySendButtonMediaPost**](MessageSendingApi.md#InstancesInstanceKeySendButtonMediaPost) | **Post** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 [**InstancesInstanceKeySendButtonsPost**](MessageSendingApi.md#InstancesInstanceKeySendButtonsPost) | **Post** /instances/{instance_key}/send/buttons | Send a button message.
@@ -14,7 +13,7 @@ Method | HTTP request | Description
 [**InstancesInstanceKeySendListPost**](MessageSendingApi.md#InstancesInstanceKeySendListPost) | **Post** /instances/{instance_key}/send/list | Send a List message.
 [**InstancesInstanceKeySendLocationPost**](MessageSendingApi.md#InstancesInstanceKeySendLocationPost) | **Post** /instances/{instance_key}/send/location | Send a location message.
 [**InstancesInstanceKeySendMediaPost**](MessageSendingApi.md#InstancesInstanceKeySendMediaPost) | **Post** /instances/{instance_key}/send/media | Send a media message.
-[**InstancesInstanceKeySendPollPost**](MessageSendingApi.md#InstancesInstanceKeySendPollPost) | **Post** /instances/{instance_key}/send/poll | Send a Poll message with media.
+[**InstancesInstanceKeySendPollPost**](MessageSendingApi.md#InstancesInstanceKeySendPollPost) | **Post** /instances/{instance_key}/send/poll | Send a Poll message.
 [**InstancesInstanceKeySendTemplateMediaPost**](MessageSendingApi.md#InstancesInstanceKeySendTemplateMediaPost) | **Post** /instances/{instance_key}/send/template-media | Send a template message with media.
 [**InstancesInstanceKeySendTemplatePost**](MessageSendingApi.md#InstancesInstanceKeySendTemplatePost) | **Post** /instances/{instance_key}/send/template | Send a template message.
 [**InstancesInstanceKeySendTextPost**](MessageSendingApi.md#InstancesInstanceKeySendTextPost) | **Post** /instances/{instance_key}/send/text | Send a text message.
@@ -23,79 +22,9 @@ Method | HTTP request | Description
 
 
 
-## InstancesInstanceKeyBusinessCatalogGet
-
-> MainAPIResponse InstancesInstanceKeyBusinessCatalogGet(ctx, instanceKey).Execute()
-
-Fetches the catlog.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSendingApi.InstancesInstanceKeyBusinessCatalogGet(context.Background(), instanceKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeyBusinessCatalogGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyBusinessCatalogGet`: MainAPIResponse
-    fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeyBusinessCatalogGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyBusinessCatalogGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**MainAPIResponse**](MainAPIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## InstancesInstanceKeySendAudioPost
 
-> MainAPIResponse InstancesInstanceKeySendAudioPost(ctx, instanceKey).To(to).InstancesInstanceKeySendAudioPostRequest(instancesInstanceKeySendAudioPostRequest).Caption(caption).Execute()
+> APIResponse InstancesInstanceKeySendAudioPost(ctx, instanceKey).To(to).InstancesInstanceKeySendAudioPostRequest(instancesInstanceKeySendAudioPostRequest).Caption(caption).Execute()
 
 Send raw audio.
 
@@ -126,7 +55,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendAudioPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendAudioPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendAudioPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendAudioPost`: %v\n", resp)
 }
 ```
@@ -153,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -171,7 +100,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendButtonMediaPost
 
-> MainAPIResponse InstancesInstanceKeySendButtonMediaPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendButtonMediaPost(ctx, instanceKey).Data(data).Execute()
 
 Send a button message with a media header.
 
@@ -191,7 +120,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsButtonMessageWithMediaPayload() // StructsButtonMessageWithMediaPayload | Message data
+    data := *openapiclient.NewButtonMessageWithMediaPayload() // ButtonMessageWithMediaPayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -200,7 +129,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendButtonMediaPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendButtonMediaPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendButtonMediaPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendButtonMediaPost`: %v\n", resp)
 }
 ```
@@ -221,11 +150,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendBu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsButtonMessageWithMediaPayload**](StructsButtonMessageWithMediaPayload.md) | Message data | 
+ **data** | [**ButtonMessageWithMediaPayload**](ButtonMessageWithMediaPayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -243,7 +172,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendButtonsPost
 
-> MainAPIResponse InstancesInstanceKeySendButtonsPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendButtonsPost(ctx, instanceKey).Data(data).Execute()
 
 Send a button message.
 
@@ -263,7 +192,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsButtonMessagePayload() // StructsButtonMessagePayload | Message data
+    data := *openapiclient.NewButtonMessagePayload() // ButtonMessagePayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -272,7 +201,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendButtonsPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendButtonsPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendButtonsPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendButtonsPost`: %v\n", resp)
 }
 ```
@@ -293,11 +222,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendBu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsButtonMessagePayload**](StructsButtonMessagePayload.md) | Message data | 
+ **data** | [**ButtonMessagePayload**](ButtonMessagePayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -315,7 +244,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendContactPost
 
-> MainAPIResponse InstancesInstanceKeySendContactPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendContactPost(ctx, instanceKey).Data(data).Execute()
 
 Send a contact message.
 
@@ -335,7 +264,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsContactMessagePayload("To_example", *openapiclient.NewStructsContactMessagePayloadVcard()) // StructsContactMessagePayload | Message data
+    data := *openapiclient.NewContactMessagePayload("To_example", *openapiclient.NewContactMessagePayloadVcard()) // ContactMessagePayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -344,7 +273,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendContactPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendContactPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendContactPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendContactPost`: %v\n", resp)
 }
 ```
@@ -365,11 +294,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendCo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsContactMessagePayload**](StructsContactMessagePayload.md) | Message data | 
+ **data** | [**ContactMessagePayload**](ContactMessagePayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -387,7 +316,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendDocumentPost
 
-> MainAPIResponse InstancesInstanceKeySendDocumentPost(ctx, instanceKey).To(to).InstancesInstanceKeySendDocumentPostRequest(instancesInstanceKeySendDocumentPostRequest).Caption(caption).Execute()
+> APIResponse InstancesInstanceKeySendDocumentPost(ctx, instanceKey).To(to).InstancesInstanceKeySendDocumentPostRequest(instancesInstanceKeySendDocumentPostRequest).Caption(caption).Execute()
 
 Send raw document.
 
@@ -418,7 +347,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendDocumentPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendDocumentPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendDocumentPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendDocumentPost`: %v\n", resp)
 }
 ```
@@ -445,7 +374,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -463,7 +392,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendImagePost
 
-> MainAPIResponse InstancesInstanceKeySendImagePost(ctx, instanceKey).To(to).InstancesInstanceKeySendImagePostRequest(instancesInstanceKeySendImagePostRequest).Caption(caption).Execute()
+> APIResponse InstancesInstanceKeySendImagePost(ctx, instanceKey).To(to).InstancesInstanceKeySendImagePostRequest(instancesInstanceKeySendImagePostRequest).Caption(caption).Execute()
 
 Send raw image.
 
@@ -494,7 +423,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendImagePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendImagePost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendImagePost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendImagePost`: %v\n", resp)
 }
 ```
@@ -521,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -539,7 +468,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendListPost
 
-> MainAPIResponse InstancesInstanceKeySendListPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendListPost(ctx, instanceKey).Data(data).Execute()
 
 Send a List message.
 
@@ -559,7 +488,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsListMessagePayload([]openapiclient.StructsListSection{*openapiclient.NewStructsListSection([]openapiclient.StructsListItem{*openapiclient.NewStructsListItem("Title_example")}, "Title_example")}, "To_example") // StructsListMessagePayload | Message data
+    data := *openapiclient.NewListMessagePayload([]openapiclient.ListSection{*openapiclient.NewListSection([]openapiclient.ListItem{*openapiclient.NewListItem("Title_example")}, "Title_example")}, "To_example") // ListMessagePayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -568,7 +497,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendListPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendListPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendListPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendListPost`: %v\n", resp)
 }
 ```
@@ -589,11 +518,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendLi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsListMessagePayload**](StructsListMessagePayload.md) | Message data | 
+ **data** | [**ListMessagePayload**](ListMessagePayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -611,7 +540,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendLocationPost
 
-> MainAPIResponse InstancesInstanceKeySendLocationPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendLocationPost(ctx, instanceKey).Data(data).Execute()
 
 Send a location message.
 
@@ -631,7 +560,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsLocationMessagePayload(*openapiclient.NewStructsLocationMessagePayloadLocation(float32(123), float32(123), "Name_example"), "To_example") // StructsLocationMessagePayload | Message data
+    data := *openapiclient.NewLocationMessagePayload(*openapiclient.NewLocationMessagePayloadLocation(float32(123), float32(123), "Name_example"), "To_example") // LocationMessagePayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -640,7 +569,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendLocationPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendLocationPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendLocationPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendLocationPost`: %v\n", resp)
 }
 ```
@@ -661,11 +590,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendLo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsLocationMessagePayload**](StructsLocationMessagePayload.md) | Message data | 
+ **data** | [**LocationMessagePayload**](LocationMessagePayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -683,7 +612,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendMediaPost
 
-> MainAPIResponse InstancesInstanceKeySendMediaPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendMediaPost(ctx, instanceKey).Data(data).Execute()
 
 Send a media message.
 
@@ -703,7 +632,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsSendMediaPayload(*openapiclient.NewStructsFileUpload("DirectPath_example", []int32{int32(123)}, int32(123), []int32{int32(123)}, []int32{int32(123)}, "MimeType_example", "Url_example"), "MediaType_example", "To_example") // StructsSendMediaPayload | Message data
+    data := *openapiclient.NewSendMediaPayload(*openapiclient.NewFileUpload("DirectPath_example", []int32{int32(123)}, int32(123), []int32{int32(123)}, []int32{int32(123)}, "MimeType_example", "Url_example"), "MediaType_example", "To_example") // SendMediaPayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -712,7 +641,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendMediaPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendMediaPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendMediaPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendMediaPost`: %v\n", resp)
 }
 ```
@@ -733,11 +662,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendMe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsSendMediaPayload**](StructsSendMediaPayload.md) | Message data | 
+ **data** | [**SendMediaPayload**](SendMediaPayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -755,9 +684,9 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendPollPost
 
-> MainAPIResponse InstancesInstanceKeySendPollPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendPollPost(ctx, instanceKey).Data(data).Execute()
 
-Send a Poll message with media.
+Send a Poll message.
 
 
 
@@ -775,7 +704,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsPollMessagePayload([]string{"Options_example"}, int32(123), "Title_example", "To_example") // StructsPollMessagePayload | Message data
+    data := *openapiclient.NewPollMessagePayload([]string{"Options_example"}, int32(123), "Title_example", "To_example") // PollMessagePayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -784,7 +713,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendPollPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendPollPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendPollPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendPollPost`: %v\n", resp)
 }
 ```
@@ -805,11 +734,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendPo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsPollMessagePayload**](StructsPollMessagePayload.md) | Message data | 
+ **data** | [**PollMessagePayload**](PollMessagePayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -827,7 +756,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendTemplateMediaPost
 
-> MainAPIResponse InstancesInstanceKeySendTemplateMediaPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendTemplateMediaPost(ctx, instanceKey).Data(data).Execute()
 
 Send a template message with media.
 
@@ -847,7 +776,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsTemplateButtonWithMediaPayload([]openapiclient.StructsTemplateButton{*openapiclient.NewStructsTemplateButton("Title_example", "Type_example")}, *openapiclient.NewStructsFileUpload("DirectPath_example", []int32{int32(123)}, int32(123), []int32{int32(123)}, []int32{int32(123)}, "MimeType_example", "Url_example"), "To_example") // StructsTemplateButtonWithMediaPayload | Message data
+    data := *openapiclient.NewTemplateButtonWithMediaPayload([]openapiclient.TemplateButton{*openapiclient.NewTemplateButton("Title_example", "Type_example")}, *openapiclient.NewFileUpload("DirectPath_example", []int32{int32(123)}, int32(123), []int32{int32(123)}, []int32{int32(123)}, "MimeType_example", "Url_example"), "To_example") // TemplateButtonWithMediaPayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -856,7 +785,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendTemplateMediaPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendTemplateMediaPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendTemplateMediaPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendTemplateMediaPost`: %v\n", resp)
 }
 ```
@@ -877,11 +806,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendTe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsTemplateButtonWithMediaPayload**](StructsTemplateButtonWithMediaPayload.md) | Message data | 
+ **data** | [**TemplateButtonWithMediaPayload**](TemplateButtonWithMediaPayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -899,7 +828,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendTemplatePost
 
-> MainAPIResponse InstancesInstanceKeySendTemplatePost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendTemplatePost(ctx, instanceKey).Data(data).Execute()
 
 Send a template message.
 
@@ -919,7 +848,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsTemplateButtonPayload([]openapiclient.StructsTemplateButton{*openapiclient.NewStructsTemplateButton("Title_example", "Type_example")}, "To_example") // StructsTemplateButtonPayload | Message data
+    data := *openapiclient.NewTemplateButtonPayload([]openapiclient.TemplateButton{*openapiclient.NewTemplateButton("Title_example", "Type_example")}, "To_example") // TemplateButtonPayload | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -928,7 +857,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendTemplatePost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendTemplatePost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendTemplatePost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendTemplatePost`: %v\n", resp)
 }
 ```
@@ -949,11 +878,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendTe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsTemplateButtonPayload**](StructsTemplateButtonPayload.md) | Message data | 
+ **data** | [**TemplateButtonPayload**](TemplateButtonPayload.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -971,7 +900,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendTextPost
 
-> MainAPIResponse InstancesInstanceKeySendTextPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse InstancesInstanceKeySendTextPost(ctx, instanceKey).Data(data).Execute()
 
 Send a text message.
 
@@ -991,7 +920,7 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
-    data := *openapiclient.NewStructsTextMessage("Text_example", "To_example") // StructsTextMessage | Message data
+    data := *openapiclient.NewTextMessage("Text_example", "To_example") // TextMessage | Message data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -1000,7 +929,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendTextPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendTextPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendTextPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendTextPost`: %v\n", resp)
 }
 ```
@@ -1021,11 +950,11 @@ Other parameters are passed through a pointer to a apiInstancesInstanceKeySendTe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **data** | [**StructsTextMessage**](StructsTextMessage.md) | Message data | 
+ **data** | [**TextMessage**](TextMessage.md) | Message data | 
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1043,7 +972,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendUploadPost
 
-> MainAPIResponse InstancesInstanceKeySendUploadPost(ctx, instanceKey).Type_(type_).InstancesInstanceKeySendUploadPostRequest(instancesInstanceKeySendUploadPostRequest).Execute()
+> APIResponse InstancesInstanceKeySendUploadPost(ctx, instanceKey).Type_(type_).InstancesInstanceKeySendUploadPostRequest(instancesInstanceKeySendUploadPostRequest).Execute()
 
 Upload media.
 
@@ -1073,7 +1002,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendUploadPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendUploadPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendUploadPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendUploadPost`: %v\n", resp)
 }
 ```
@@ -1099,7 +1028,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 
@@ -1117,7 +1046,7 @@ Name | Type | Description  | Notes
 
 ## InstancesInstanceKeySendVideoPost
 
-> MainAPIResponse InstancesInstanceKeySendVideoPost(ctx, instanceKey).To(to).InstancesInstanceKeySendVideoPostRequest(instancesInstanceKeySendVideoPostRequest).Caption(caption).Execute()
+> APIResponse InstancesInstanceKeySendVideoPost(ctx, instanceKey).To(to).InstancesInstanceKeySendVideoPostRequest(instancesInstanceKeySendVideoPostRequest).Caption(caption).Execute()
 
 Send raw video.
 
@@ -1148,7 +1077,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.InstancesInstanceKeySendVideoPost``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeySendVideoPost`: MainAPIResponse
+    // response from `InstancesInstanceKeySendVideoPost`: APIResponse
     fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.InstancesInstanceKeySendVideoPost`: %v\n", resp)
 }
 ```
@@ -1175,7 +1104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**APIResponse**](APIResponse.md)
 
 ### Authorization
 

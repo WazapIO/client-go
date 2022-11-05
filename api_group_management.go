@@ -30,7 +30,7 @@ type ApiInstancesInstanceKeyGroupsAdminGetRequest struct {
 	instanceKey string
 }
 
-func (r ApiInstancesInstanceKeyGroupsAdminGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsAdminGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsAdminGetExecute(r)
 }
 
@@ -52,13 +52,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsAdminGet(ctx conte
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsAdminGetExecute(r ApiInstancesInstanceKeyGroupsAdminGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsAdminGetExecute(r ApiInstancesInstanceKeyGroupsAdminGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsAdminGet")
@@ -127,7 +127,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsAdminGetExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -138,7 +138,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsAdminGetExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -149,7 +149,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsAdminGetExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -160,7 +160,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsAdminGetExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -188,16 +188,16 @@ type ApiInstancesInstanceKeyGroupsCreatePostRequest struct {
 	ctx context.Context
 	ApiService *GroupManagementApiService
 	instanceKey string
-	data *StructsGroupCreatePayload
+	data *GroupCreatePayload
 }
 
 // Group create payload
-func (r ApiInstancesInstanceKeyGroupsCreatePostRequest) Data(data StructsGroupCreatePayload) ApiInstancesInstanceKeyGroupsCreatePostRequest {
+func (r ApiInstancesInstanceKeyGroupsCreatePostRequest) Data(data GroupCreatePayload) ApiInstancesInstanceKeyGroupsCreatePostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsCreatePostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsCreatePostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsCreatePostExecute(r)
 }
 
@@ -219,13 +219,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsCreatePost(ctx con
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsCreatePostExecute(r ApiInstancesInstanceKeyGroupsCreatePostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsCreatePostExecute(r ApiInstancesInstanceKeyGroupsCreatePostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsCreatePost")
@@ -299,7 +299,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsCreatePostExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -310,7 +310,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsCreatePostExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -321,7 +321,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsCreatePostExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -332,7 +332,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsCreatePostExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -369,7 +369,7 @@ func (r ApiInstancesInstanceKeyGroupsGetRequest) IncludeParticipants(includePart
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGetExecute(r)
 }
 
@@ -391,13 +391,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGet(ctx context.Co
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGetExecute(r ApiInstancesInstanceKeyGroupsGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGetExecute(r ApiInstancesInstanceKeyGroupsGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGet")
@@ -469,7 +469,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGetExecute(r ApiIn
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -480,7 +480,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGetExecute(r ApiIn
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -491,7 +491,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGetExecute(r ApiIn
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -502,7 +502,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGetExecute(r ApiIn
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -534,7 +534,7 @@ type ApiInstancesInstanceKeyGroupsGroupIdAnnouncePutRequest struct {
 	groupId string
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdAnnouncePutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdAnnouncePutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdAnnouncePutExecute(r)
 }
 
@@ -560,13 +560,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdAnnouncePut
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdAnnouncePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdAnnouncePutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdAnnouncePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdAnnouncePutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdAnnouncePut")
@@ -637,7 +637,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdAnnouncePut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -648,7 +648,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdAnnouncePut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -659,7 +659,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdAnnouncePut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -670,7 +670,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdAnnouncePut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -701,7 +701,7 @@ type ApiInstancesInstanceKeyGroupsGroupIdDeleteRequest struct {
 	groupId string
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdDeleteRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdDeleteRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdDeleteExecute(r)
 }
 
@@ -725,13 +725,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDelete(ctx 
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDeleteExecute(r ApiInstancesInstanceKeyGroupsGroupIdDeleteRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDeleteExecute(r ApiInstancesInstanceKeyGroupsGroupIdDeleteRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdDelete")
@@ -801,7 +801,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDeleteExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -812,7 +812,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDeleteExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -823,7 +823,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDeleteExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -834,7 +834,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDeleteExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -863,16 +863,16 @@ type ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest struct {
 	ApiService *GroupManagementApiService
 	instanceKey string
 	groupId string
-	data *StructsGroupUpdateDescriptionPayload
+	data *GroupUpdateDescriptionPayload
 }
 
 // Group description data
-func (r ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest) Data(data StructsGroupUpdateDescriptionPayload) ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest {
+func (r ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest) Data(data GroupUpdateDescriptionPayload) ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdDescriptionPutExecute(r)
 }
 
@@ -896,13 +896,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDescription
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDescriptionPutExecute(r ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDescriptionPutExecute(r ApiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdDescriptionPut")
@@ -977,7 +977,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDescription
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -988,7 +988,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDescription
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -999,7 +999,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDescription
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1010,7 +1010,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdDescription
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1041,7 +1041,7 @@ type ApiInstancesInstanceKeyGroupsGroupIdGetRequest struct {
 	groupId string
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdGetExecute(r)
 }
 
@@ -1065,13 +1065,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdGet(ctx con
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdGetExecute(r ApiInstancesInstanceKeyGroupsGroupIdGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdGetExecute(r ApiInstancesInstanceKeyGroupsGroupIdGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdGet")
@@ -1141,7 +1141,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdGetExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1152,7 +1152,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdGetExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1163,7 +1163,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdGetExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1174,7 +1174,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdGetExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1205,7 +1205,7 @@ type ApiInstancesInstanceKeyGroupsGroupIdInviteCodeGetRequest struct {
 	groupId string
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdInviteCodeGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdInviteCodeGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdInviteCodeGetExecute(r)
 }
 
@@ -1229,13 +1229,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdInviteCodeG
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdInviteCodeGetExecute(r ApiInstancesInstanceKeyGroupsGroupIdInviteCodeGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdInviteCodeGetExecute(r ApiInstancesInstanceKeyGroupsGroupIdInviteCodeGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdInviteCodeGet")
@@ -1305,7 +1305,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdInviteCodeG
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1316,7 +1316,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdInviteCodeG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1327,7 +1327,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdInviteCodeG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1338,7 +1338,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdInviteCodeG
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1370,7 +1370,7 @@ type ApiInstancesInstanceKeyGroupsGroupIdLockPutRequest struct {
 	groupId string
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdLockPutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdLockPutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdLockPutExecute(r)
 }
 
@@ -1396,13 +1396,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdLockPut(ctx
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdLockPutExecute(r ApiInstancesInstanceKeyGroupsGroupIdLockPutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdLockPutExecute(r ApiInstancesInstanceKeyGroupsGroupIdLockPutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdLockPut")
@@ -1473,7 +1473,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdLockPutExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1484,7 +1484,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdLockPutExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1495,7 +1495,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdLockPutExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1506,7 +1506,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdLockPutExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1535,16 +1535,16 @@ type ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest struct {
 	ApiService *GroupManagementApiService
 	instanceKey string
 	groupId string
-	data *StructsGroupUpdateNamePayload
+	data *GroupUpdateNamePayload
 }
 
 // Group name data
-func (r ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest) Data(data StructsGroupUpdateNamePayload) ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest {
+func (r ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest) Data(data GroupUpdateNamePayload) ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdNamePutExecute(r)
 }
 
@@ -1568,13 +1568,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdNamePut(ctx
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdNamePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdNamePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdNamePutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdNamePut")
@@ -1649,7 +1649,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdNamePutExec
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1660,7 +1660,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdNamePutExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1671,7 +1671,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdNamePutExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1682,7 +1682,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdNamePutExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1711,16 +1711,16 @@ type ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest struct {
 	ApiService *GroupManagementApiService
 	instanceKey string
 	groupId string
-	data *StructsGroupUpdateParticipantsPayload
+	data *GroupUpdateParticipantsPayload
 }
 
 // Group update payload
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest) Data(data StructsGroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest) Data(data GroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdParticipantsAddPostExecute(r)
 }
 
@@ -1744,13 +1744,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsAddPostExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsAddPostExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdParticipantsAddPost")
@@ -1825,7 +1825,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1836,7 +1836,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1847,7 +1847,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1858,7 +1858,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1887,16 +1887,16 @@ type ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest struct {
 	ApiService *GroupManagementApiService
 	instanceKey string
 	groupId string
-	data *StructsGroupUpdateParticipantsPayload
+	data *GroupUpdateParticipantsPayload
 }
 
 // Group update payload
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest) Data(data StructsGroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest) Data(data GroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdParticipantsDemotePutExecute(r)
 }
 
@@ -1920,13 +1920,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsDemotePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsDemotePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut")
@@ -2001,7 +2001,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2012,7 +2012,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2023,7 +2023,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2034,7 +2034,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2063,16 +2063,16 @@ type ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest struct {
 	ApiService *GroupManagementApiService
 	instanceKey string
 	groupId string
-	data *StructsGroupUpdateParticipantsPayload
+	data *GroupUpdateParticipantsPayload
 }
 
 // Group update payload
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest) Data(data StructsGroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest) Data(data GroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdParticipantsPromotePutExecute(r)
 }
 
@@ -2096,13 +2096,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsPromotePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsPromotePutExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut")
@@ -2177,7 +2177,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2188,7 +2188,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2199,7 +2199,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2210,7 +2210,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2239,16 +2239,16 @@ type ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest struct 
 	ApiService *GroupManagementApiService
 	instanceKey string
 	groupId string
-	data *StructsGroupUpdateParticipantsPayload
+	data *GroupUpdateParticipantsPayload
 }
 
 // Group update payload
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest) Data(data StructsGroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest) Data(data GroupUpdateParticipantsPayload) ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteExecute(r)
 }
 
@@ -2272,13 +2272,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteExecute(r ApiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete")
@@ -2353,7 +2353,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2364,7 +2364,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2375,7 +2375,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2386,7 +2386,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdParticipant
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2423,7 +2423,7 @@ func (r ApiInstancesInstanceKeyGroupsGroupIdProfilePicPutRequest) InstancesInsta
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsGroupIdProfilePicPutRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsGroupIdProfilePicPutRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsGroupIdProfilePicPutExecute(r)
 }
 
@@ -2447,13 +2447,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdProfilePicP
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdProfilePicPutExecute(r ApiInstancesInstanceKeyGroupsGroupIdProfilePicPutRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdProfilePicPutExecute(r ApiInstancesInstanceKeyGroupsGroupIdProfilePicPutRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsGroupIdProfilePicPut")
@@ -2528,7 +2528,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdProfilePicP
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2539,7 +2539,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdProfilePicP
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2550,7 +2550,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdProfilePicP
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2561,7 +2561,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsGroupIdProfilePicP
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2598,7 +2598,7 @@ func (r ApiInstancesInstanceKeyGroupsInviteInfoGetRequest) InviteLink(inviteLink
 	return r
 }
 
-func (r ApiInstancesInstanceKeyGroupsInviteInfoGetRequest) Execute() (*MainAPIResponse, *http.Response, error) {
+func (r ApiInstancesInstanceKeyGroupsInviteInfoGetRequest) Execute() (*APIResponse, *http.Response, error) {
 	return r.ApiService.InstancesInstanceKeyGroupsInviteInfoGetExecute(r)
 }
 
@@ -2620,13 +2620,13 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsInviteInfoGet(ctx 
 }
 
 // Execute executes the request
-//  @return MainAPIResponse
-func (a *GroupManagementApiService) InstancesInstanceKeyGroupsInviteInfoGetExecute(r ApiInstancesInstanceKeyGroupsInviteInfoGetRequest) (*MainAPIResponse, *http.Response, error) {
+//  @return APIResponse
+func (a *GroupManagementApiService) InstancesInstanceKeyGroupsInviteInfoGetExecute(r ApiInstancesInstanceKeyGroupsInviteInfoGetRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *MainAPIResponse
+		localVarReturnValue  *APIResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GroupManagementApiService.InstancesInstanceKeyGroupsInviteInfoGet")
@@ -2699,7 +2699,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsInviteInfoGetExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2710,7 +2710,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsInviteInfoGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2721,7 +2721,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsInviteInfoGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2732,7 +2732,7 @@ func (a *GroupManagementApiService) InstancesInstanceKeyGroupsInviteInfoGetExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v MainAPIResponse
+			var v APIResponse
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

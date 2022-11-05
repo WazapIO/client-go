@@ -4,13 +4,13 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**InstancesInstanceKeyBusinessCatalogGet**](BusinessManagementApi.md#InstancesInstanceKeyBusinessCatalogGet) | **Get** /instances/{instance_key}/business/catalog | Fetches the catlog.
+[**FetchCatlog**](BusinessManagementApi.md#FetchCatlog) | **Get** /instances/{instance_key}/business/catalog | Fetches the catlog.
 
 
 
-## InstancesInstanceKeyBusinessCatalogGet
+## FetchCatlog
 
-> APIResponse InstancesInstanceKeyBusinessCatalogGet(ctx, instanceKey).Execute()
+> APIResponse FetchCatlog(ctx, instanceKey).Execute()
 
 Fetches the catlog.
 
@@ -33,13 +33,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.BusinessManagementApi.InstancesInstanceKeyBusinessCatalogGet(context.Background(), instanceKey).Execute()
+    resp, r, err := apiClient.BusinessManagementApi.FetchCatlog(context.Background(), instanceKey).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `BusinessManagementApi.InstancesInstanceKeyBusinessCatalogGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `BusinessManagementApi.FetchCatlog``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyBusinessCatalogGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `BusinessManagementApi.InstancesInstanceKeyBusinessCatalogGet`: %v\n", resp)
+    // response from `FetchCatlog`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `BusinessManagementApi.FetchCatlog`: %v\n", resp)
 }
 ```
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyBusinessCatalogGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiFetchCatlogRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

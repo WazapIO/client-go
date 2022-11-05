@@ -4,14 +4,14 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**InstancesInstanceKeyMiscProfilePicGet**](MiscellaneousApi.md#InstancesInstanceKeyMiscProfilePicGet) | **Get** /instances/{instance_key}/misc/profile-pic | Get profile pic.
-[**InstancesInstanceKeyMiscUserInfoPost**](MiscellaneousApi.md#InstancesInstanceKeyMiscUserInfoPost) | **Post** /instances/{instance_key}/misc/user-info | Fetches the users info.
+[**GetProfilePic**](MiscellaneousApi.md#GetProfilePic) | **Get** /instances/{instance_key}/misc/profile-pic | Get profile pic.
+[**GetUsersInfo**](MiscellaneousApi.md#GetUsersInfo) | **Post** /instances/{instance_key}/misc/user-info | Fetches the users info.
 
 
 
-## InstancesInstanceKeyMiscProfilePicGet
+## GetProfilePic
 
-> APIResponse InstancesInstanceKeyMiscProfilePicGet(ctx, instanceKey).Jid(jid).Execute()
+> APIResponse GetProfilePic(ctx, instanceKey).Jid(jid).Execute()
 
 Get profile pic.
 
@@ -35,13 +35,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MiscellaneousApi.InstancesInstanceKeyMiscProfilePicGet(context.Background(), instanceKey).Jid(jid).Execute()
+    resp, r, err := apiClient.MiscellaneousApi.GetProfilePic(context.Background(), instanceKey).Jid(jid).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MiscellaneousApi.InstancesInstanceKeyMiscProfilePicGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MiscellaneousApi.GetProfilePic``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyMiscProfilePicGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `MiscellaneousApi.InstancesInstanceKeyMiscProfilePicGet`: %v\n", resp)
+    // response from `GetProfilePic`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `MiscellaneousApi.GetProfilePic`: %v\n", resp)
 }
 ```
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyMiscProfilePicGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetProfilePicRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyMiscUserInfoPost
+## GetUsersInfo
 
-> APIResponse InstancesInstanceKeyMiscUserInfoPost(ctx, instanceKey).Data(data).Execute()
+> APIResponse GetUsersInfo(ctx, instanceKey).Data(data).Execute()
 
 Fetches the users info.
 
@@ -107,13 +107,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MiscellaneousApi.InstancesInstanceKeyMiscUserInfoPost(context.Background(), instanceKey).Data(data).Execute()
+    resp, r, err := apiClient.MiscellaneousApi.GetUsersInfo(context.Background(), instanceKey).Data(data).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `MiscellaneousApi.InstancesInstanceKeyMiscUserInfoPost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `MiscellaneousApi.GetUsersInfo``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyMiscUserInfoPost`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `MiscellaneousApi.InstancesInstanceKeyMiscUserInfoPost`: %v\n", resp)
+    // response from `GetUsersInfo`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `MiscellaneousApi.GetUsersInfo`: %v\n", resp)
 }
 ```
 
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyMiscUserInfoPostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUsersInfoRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes

@@ -24,27 +24,27 @@ import (
 // BusinessManagementApiService BusinessManagementApi service
 type BusinessManagementApiService service
 
-type ApiInstancesInstanceKeyBusinessCatalogGetRequest struct {
+type ApiFetchCatlogRequest struct {
 	ctx context.Context
 	ApiService *BusinessManagementApiService
 	instanceKey string
 }
 
-func (r ApiInstancesInstanceKeyBusinessCatalogGetRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeyBusinessCatalogGetExecute(r)
+func (r ApiFetchCatlogRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.FetchCatlogExecute(r)
 }
 
 /*
-InstancesInstanceKeyBusinessCatalogGet Fetches the catlog.
+FetchCatlog Fetches the catlog.
 
 Gets list of all products registered by you.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeyBusinessCatalogGetRequest
+ @return ApiFetchCatlogRequest
 */
-func (a *BusinessManagementApiService) InstancesInstanceKeyBusinessCatalogGet(ctx context.Context, instanceKey string) ApiInstancesInstanceKeyBusinessCatalogGetRequest {
-	return ApiInstancesInstanceKeyBusinessCatalogGetRequest{
+func (a *BusinessManagementApiService) FetchCatlog(ctx context.Context, instanceKey string) ApiFetchCatlogRequest {
+	return ApiFetchCatlogRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -53,7 +53,7 @@ func (a *BusinessManagementApiService) InstancesInstanceKeyBusinessCatalogGet(ct
 
 // Execute executes the request
 //  @return APIResponse
-func (a *BusinessManagementApiService) InstancesInstanceKeyBusinessCatalogGetExecute(r ApiInstancesInstanceKeyBusinessCatalogGetRequest) (*APIResponse, *http.Response, error) {
+func (a *BusinessManagementApiService) FetchCatlogExecute(r ApiFetchCatlogRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -61,7 +61,7 @@ func (a *BusinessManagementApiService) InstancesInstanceKeyBusinessCatalogGetExe
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessManagementApiService.InstancesInstanceKeyBusinessCatalogGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "BusinessManagementApiService.FetchCatlog")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -4,436 +4,20 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**InstancesCreateGet**](InstanceApi.md#InstancesCreateGet) | **Get** /instances/create | Creates a new instance key.
-[**InstancesInstanceKeyContactsGet**](InstanceApi.md#InstancesInstanceKeyContactsGet) | **Get** /instances/{instance_key}/contacts | Get contacts.
-[**InstancesInstanceKeyDeleteDelete**](InstanceApi.md#InstancesInstanceKeyDeleteDelete) | **Delete** /instances/{instance_key}/delete | Delete Instance.
-[**InstancesInstanceKeyGet**](InstanceApi.md#InstancesInstanceKeyGet) | **Get** /instances/{instance_key}/ | Get Instance.
-[**InstancesInstanceKeyLogoutDelete**](InstanceApi.md#InstancesInstanceKeyLogoutDelete) | **Delete** /instances/{instance_key}/logout | Logout Instance.
-[**InstancesInstanceKeyQrcodeGet**](InstanceApi.md#InstancesInstanceKeyQrcodeGet) | **Get** /instances/{instance_key}/qrcode | Get QrCode.
-[**InstancesInstanceKeyWebhookPut**](InstanceApi.md#InstancesInstanceKeyWebhookPut) | **Put** /instances/{instance_key}/webhook | Change Webhook url.
-[**InstancesListGet**](InstanceApi.md#InstancesListGet) | **Get** /instances/list | Get all instances.
+[**ChangeWebhookUrl**](InstanceApi.md#ChangeWebhookUrl) | **Put** /instances/{instance_key}/webhook | Change Webhook url.
+[**CreateInstance**](InstanceApi.md#CreateInstance) | **Get** /instances/create | Creates a new instance key.
+[**DeleteInstance**](InstanceApi.md#DeleteInstance) | **Delete** /instances/{instance_key}/delete | Delete Instance.
+[**GetContacts**](InstanceApi.md#GetContacts) | **Get** /instances/{instance_key}/contacts | Get contacts.
+[**GetInstance**](InstanceApi.md#GetInstance) | **Get** /instances/{instance_key}/ | Get Instance.
+[**GetQrCode**](InstanceApi.md#GetQrCode) | **Get** /instances/{instance_key}/qrcode | Get QrCode.
+[**ListInstances**](InstanceApi.md#ListInstances) | **Get** /instances/list | Get all instances.
+[**LogoutInstance**](InstanceApi.md#LogoutInstance) | **Delete** /instances/{instance_key}/logout | Logout Instance.
 
 
 
-## InstancesCreateGet
+## ChangeWebhookUrl
 
-> APIResponse InstancesCreateGet(ctx).InstanceKey(instanceKey).Execute()
-
-Creates a new instance key.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Insert instance key if you want to provide custom key (optional)
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesCreateGet(context.Background()).InstanceKey(instanceKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesCreateGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesCreateGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesCreateGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesCreateGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instanceKey** | **string** | Insert instance key if you want to provide custom key | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyContactsGet
-
-> APIResponse InstancesInstanceKeyContactsGet(ctx, instanceKey).Execute()
-
-Get contacts.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesInstanceKeyContactsGet(context.Background(), instanceKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyContactsGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyContactsGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyContactsGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyContactsGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyDeleteDelete
-
-> APIResponse InstancesInstanceKeyDeleteDelete(ctx, instanceKey).Execute()
-
-Delete Instance.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesInstanceKeyDeleteDelete(context.Background(), instanceKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyDeleteDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyDeleteDelete`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyDeleteDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyDeleteDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGet
-
-> APIResponse InstancesInstanceKeyGet(ctx, instanceKey).Execute()
-
-Get Instance.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesInstanceKeyGet(context.Background(), instanceKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyLogoutDelete
-
-> APIResponse InstancesInstanceKeyLogoutDelete(ctx, instanceKey).Execute()
-
-Logout Instance.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesInstanceKeyLogoutDelete(context.Background(), instanceKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyLogoutDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyLogoutDelete`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyLogoutDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyLogoutDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyQrcodeGet
-
-> APIResponse InstancesInstanceKeyQrcodeGet(ctx, instanceKey).Execute()
-
-Get QrCode.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesInstanceKeyQrcodeGet(context.Background(), instanceKey).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyQrcodeGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyQrcodeGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyQrcodeGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyQrcodeGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyWebhookPut
-
-> APIResponse InstancesInstanceKeyWebhookPut(ctx, instanceKey).Data(data).Execute()
+> APIResponse ChangeWebhookUrl(ctx, instanceKey).Data(data).Execute()
 
 Change Webhook url.
 
@@ -457,13 +41,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesInstanceKeyWebhookPut(context.Background(), instanceKey).Data(data).Execute()
+    resp, r, err := apiClient.InstanceApi.ChangeWebhookUrl(context.Background(), instanceKey).Data(data).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesInstanceKeyWebhookPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.ChangeWebhookUrl``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyWebhookPut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesInstanceKeyWebhookPut`: %v\n", resp)
+    // response from `ChangeWebhookUrl`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.ChangeWebhookUrl`: %v\n", resp)
 }
 ```
 
@@ -477,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyWebhookPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiChangeWebhookUrlRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -503,9 +87,355 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesListGet
+## CreateInstance
 
-> APIResponse InstancesListGet(ctx).Execute()
+> APIResponse CreateInstance(ctx).InstanceKey(instanceKey).Execute()
+
+Creates a new instance key.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Insert instance key if you want to provide custom key (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InstanceApi.CreateInstance(context.Background()).InstanceKey(instanceKey).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.CreateInstance``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateInstance`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.CreateInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instanceKey** | **string** | Insert instance key if you want to provide custom key | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteInstance
+
+> APIResponse DeleteInstance(ctx, instanceKey).Execute()
+
+Delete Instance.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InstanceApi.DeleteInstance(context.Background(), instanceKey).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.DeleteInstance``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteInstance`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.DeleteInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetContacts
+
+> APIResponse GetContacts(ctx, instanceKey).Execute()
+
+Get contacts.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InstanceApi.GetContacts(context.Background(), instanceKey).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.GetContacts``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetContacts`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.GetContacts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetContactsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetInstance
+
+> APIResponse GetInstance(ctx, instanceKey).Execute()
+
+Get Instance.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InstanceApi.GetInstance(context.Background(), instanceKey).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.GetInstance``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetInstance`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.GetInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetQrCode
+
+> APIResponse GetQrCode(ctx, instanceKey).Execute()
+
+Get QrCode.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InstanceApi.GetQrCode(context.Background(), instanceKey).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.GetQrCode``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetQrCode`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.GetQrCode`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetQrCodeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListInstances
+
+> APIResponse ListInstances(ctx).Execute()
 
 Get all instances.
 
@@ -527,13 +457,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.InstancesListGet(context.Background()).Execute()
+    resp, r, err := apiClient.InstanceApi.ListInstances(context.Background()).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.InstancesListGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.ListInstances``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesListGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.InstancesListGet`: %v\n", resp)
+    // response from `ListInstances`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.ListInstances`: %v\n", resp)
 }
 ```
 
@@ -543,7 +473,77 @@ This endpoint does not need any parameter.
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesListGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListInstancesRequest struct via the builder pattern
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LogoutInstance
+
+> APIResponse LogoutInstance(ctx, instanceKey).Execute()
+
+Logout Instance.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InstanceApi.LogoutInstance(context.Background(), instanceKey).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.LogoutInstance``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `LogoutInstance`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `InstanceApi.LogoutInstance`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLogoutInstanceRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
 
 
 ### Return type

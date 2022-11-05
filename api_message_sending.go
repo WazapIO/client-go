@@ -24,48 +24,48 @@ import (
 // MessageSendingApiService MessageSendingApi service
 type MessageSendingApiService service
 
-type ApiInstancesInstanceKeySendAudioPostRequest struct {
+type ApiSendAudioRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
 	to *string
-	instancesInstanceKeySendAudioPostRequest *InstancesInstanceKeySendAudioPostRequest
+	sendAudioRequest *SendAudioRequest
 	caption *string
 }
 
 // The recipient&#39;s number
-func (r ApiInstancesInstanceKeySendAudioPostRequest) To(to string) ApiInstancesInstanceKeySendAudioPostRequest {
+func (r ApiSendAudioRequest) To(to string) ApiSendAudioRequest {
 	r.to = &to
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendAudioPostRequest) InstancesInstanceKeySendAudioPostRequest(instancesInstanceKeySendAudioPostRequest InstancesInstanceKeySendAudioPostRequest) ApiInstancesInstanceKeySendAudioPostRequest {
-	r.instancesInstanceKeySendAudioPostRequest = &instancesInstanceKeySendAudioPostRequest
+func (r ApiSendAudioRequest) SendAudioRequest(sendAudioRequest SendAudioRequest) ApiSendAudioRequest {
+	r.sendAudioRequest = &sendAudioRequest
 	return r
 }
 
 // Attached caption
-func (r ApiInstancesInstanceKeySendAudioPostRequest) Caption(caption string) ApiInstancesInstanceKeySendAudioPostRequest {
+func (r ApiSendAudioRequest) Caption(caption string) ApiSendAudioRequest {
 	r.caption = &caption
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendAudioPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendAudioPostExecute(r)
+func (r ApiSendAudioRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendAudioExecute(r)
 }
 
 /*
-InstancesInstanceKeySendAudioPost Send raw audio.
+SendAudio Send raw audio.
 
 Sends a audio message by uploading to the WhatsApp servers every time.
 This is not recommended for bulk sending.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendAudioPostRequest
+ @return ApiSendAudioRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendAudioPostRequest {
-	return ApiInstancesInstanceKeySendAudioPostRequest{
+func (a *MessageSendingApiService) SendAudio(ctx context.Context, instanceKey string) ApiSendAudioRequest {
+	return ApiSendAudioRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -74,7 +74,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPost(ctx context
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r ApiInstancesInstanceKeySendAudioPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendAudioExecute(r ApiSendAudioRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -82,7 +82,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendAudioPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendAudio")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -96,8 +96,8 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 	if r.to == nil {
 		return localVarReturnValue, nil, reportError("to is required and must be specified")
 	}
-	if r.instancesInstanceKeySendAudioPostRequest == nil {
-		return localVarReturnValue, nil, reportError("instancesInstanceKeySendAudioPostRequest is required and must be specified")
+	if r.sendAudioRequest == nil {
+		return localVarReturnValue, nil, reportError("sendAudioRequest is required and must be specified")
 	}
 
 	localVarQueryParams.Add("to", parameterToString(*r.to, ""))
@@ -122,7 +122,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.instancesInstanceKeySendAudioPostRequest
+	localVarPostBody = r.sendAudioRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -217,180 +217,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendAudioPostExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendButtonMediaPostRequest struct {
-	ctx context.Context
-	ApiService *MessageSendingApiService
-	instanceKey string
-	data *ButtonMessageWithMediaPayload
-}
-
-// Message data
-func (r ApiInstancesInstanceKeySendButtonMediaPostRequest) Data(data ButtonMessageWithMediaPayload) ApiInstancesInstanceKeySendButtonMediaPostRequest {
-	r.data = &data
-	return r
-}
-
-func (r ApiInstancesInstanceKeySendButtonMediaPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendButtonMediaPostExecute(r)
-}
-
-/*
-InstancesInstanceKeySendButtonMediaPost Send a button message with a media header.
-
-Sends an interactive button message to the given user. This message also has media header with it.
-Make sure that all the button ids are unique
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendButtonMediaPostRequest
-*/
-func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendButtonMediaPostRequest {
-	return ApiInstancesInstanceKeySendButtonMediaPostRequest{
-		ApiService: a,
-		ctx: ctx,
-		instanceKey: instanceKey,
-	}
-}
-
-// Execute executes the request
-//  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendButtonMediaPostExecute(r ApiInstancesInstanceKeySendButtonMediaPostRequest) (*APIResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *APIResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendButtonMediaPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/instances/{instance_key}/send/button-media"
-	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.data == nil {
-		return localVarReturnValue, nil, reportError("data is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"*/*"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.data
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKeyAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiInstancesInstanceKeySendButtonsPostRequest struct {
+type ApiSendButtonMessageRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
@@ -398,26 +225,26 @@ type ApiInstancesInstanceKeySendButtonsPostRequest struct {
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendButtonsPostRequest) Data(data ButtonMessagePayload) ApiInstancesInstanceKeySendButtonsPostRequest {
+func (r ApiSendButtonMessageRequest) Data(data ButtonMessagePayload) ApiSendButtonMessageRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendButtonsPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendButtonsPostExecute(r)
+func (r ApiSendButtonMessageRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendButtonMessageExecute(r)
 }
 
 /*
-InstancesInstanceKeySendButtonsPost Send a button message.
+SendButtonMessage Send a button message.
 
 Sends an interactive button message to the given user. Make sure that all the button ids are unique
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendButtonsPostRequest
+ @return ApiSendButtonMessageRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendButtonsPostRequest {
-	return ApiInstancesInstanceKeySendButtonsPostRequest{
+func (a *MessageSendingApiService) SendButtonMessage(ctx context.Context, instanceKey string) ApiSendButtonMessageRequest {
+	return ApiSendButtonMessageRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -426,7 +253,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPost(ctx conte
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r ApiInstancesInstanceKeySendButtonsPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendButtonMessageExecute(r ApiSendButtonMessageRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -434,7 +261,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r 
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendButtonsPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendButtonMessage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -562,34 +389,35 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendButtonsPostExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendContactPostRequest struct {
+type ApiSendButtonWithMediaRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *ContactMessagePayload
+	data *ButtonMessageWithMediaPayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendContactPostRequest) Data(data ContactMessagePayload) ApiInstancesInstanceKeySendContactPostRequest {
+func (r ApiSendButtonWithMediaRequest) Data(data ButtonMessageWithMediaPayload) ApiSendButtonWithMediaRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendContactPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendContactPostExecute(r)
+func (r ApiSendButtonWithMediaRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendButtonWithMediaExecute(r)
 }
 
 /*
-InstancesInstanceKeySendContactPost Send a contact message.
+SendButtonWithMedia Send a button message with a media header.
 
-Sends a contact (vcard) message to the given user.
+Sends an interactive button message to the given user. This message also has media header with it.
+Make sure that all the button ids are unique
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendContactPostRequest
+ @return ApiSendButtonWithMediaRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendContactPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendContactPostRequest {
-	return ApiInstancesInstanceKeySendContactPostRequest{
+func (a *MessageSendingApiService) SendButtonWithMedia(ctx context.Context, instanceKey string) ApiSendButtonWithMediaRequest {
+	return ApiSendButtonWithMediaRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -598,7 +426,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPost(ctx conte
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r ApiInstancesInstanceKeySendContactPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendButtonWithMediaExecute(r ApiSendButtonWithMediaRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -606,7 +434,179 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r 
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendContactPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendButtonWithMedia")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/instances/{instance_key}/send/button-media"
+	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.data == nil {
+		return localVarReturnValue, nil, reportError("data is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"*/*"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.data
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKeyAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSendContactRequest struct {
+	ctx context.Context
+	ApiService *MessageSendingApiService
+	instanceKey string
+	data *ContactMessagePayload
+}
+
+// Message data
+func (r ApiSendContactRequest) Data(data ContactMessagePayload) ApiSendContactRequest {
+	r.data = &data
+	return r
+}
+
+func (r ApiSendContactRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendContactExecute(r)
+}
+
+/*
+SendContact Send a contact message.
+
+Sends a contact (vcard) message to the given user.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param instanceKey Instance key
+ @return ApiSendContactRequest
+*/
+func (a *MessageSendingApiService) SendContact(ctx context.Context, instanceKey string) ApiSendContactRequest {
+	return ApiSendContactRequest{
+		ApiService: a,
+		ctx: ctx,
+		instanceKey: instanceKey,
+	}
+}
+
+// Execute executes the request
+//  @return APIResponse
+func (a *MessageSendingApiService) SendContactExecute(r ApiSendContactRequest) (*APIResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *APIResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendContact")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -734,48 +734,48 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendContactPostExecute(r 
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendDocumentPostRequest struct {
+type ApiSendDocumentRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
 	to *string
-	instancesInstanceKeySendDocumentPostRequest *InstancesInstanceKeySendDocumentPostRequest
+	sendDocumentRequest *SendDocumentRequest
 	caption *string
 }
 
 // The recipient&#39;s number
-func (r ApiInstancesInstanceKeySendDocumentPostRequest) To(to string) ApiInstancesInstanceKeySendDocumentPostRequest {
+func (r ApiSendDocumentRequest) To(to string) ApiSendDocumentRequest {
 	r.to = &to
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendDocumentPostRequest) InstancesInstanceKeySendDocumentPostRequest(instancesInstanceKeySendDocumentPostRequest InstancesInstanceKeySendDocumentPostRequest) ApiInstancesInstanceKeySendDocumentPostRequest {
-	r.instancesInstanceKeySendDocumentPostRequest = &instancesInstanceKeySendDocumentPostRequest
+func (r ApiSendDocumentRequest) SendDocumentRequest(sendDocumentRequest SendDocumentRequest) ApiSendDocumentRequest {
+	r.sendDocumentRequest = &sendDocumentRequest
 	return r
 }
 
 // Attached caption
-func (r ApiInstancesInstanceKeySendDocumentPostRequest) Caption(caption string) ApiInstancesInstanceKeySendDocumentPostRequest {
+func (r ApiSendDocumentRequest) Caption(caption string) ApiSendDocumentRequest {
 	r.caption = &caption
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendDocumentPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendDocumentPostExecute(r)
+func (r ApiSendDocumentRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendDocumentExecute(r)
 }
 
 /*
-InstancesInstanceKeySendDocumentPost Send raw document.
+SendDocument Send raw document.
 
 Sends a document message by uploading to the WhatsApp servers every time.
 This is not recommended for bulk sending.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendDocumentPostRequest
+ @return ApiSendDocumentRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendDocumentPostRequest {
-	return ApiInstancesInstanceKeySendDocumentPostRequest{
+func (a *MessageSendingApiService) SendDocument(ctx context.Context, instanceKey string) ApiSendDocumentRequest {
+	return ApiSendDocumentRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -784,7 +784,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPost(ctx cont
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r ApiInstancesInstanceKeySendDocumentPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendDocumentExecute(r ApiSendDocumentRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -792,7 +792,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendDocumentPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendDocument")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -806,8 +806,8 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 	if r.to == nil {
 		return localVarReturnValue, nil, reportError("to is required and must be specified")
 	}
-	if r.instancesInstanceKeySendDocumentPostRequest == nil {
-		return localVarReturnValue, nil, reportError("instancesInstanceKeySendDocumentPostRequest is required and must be specified")
+	if r.sendDocumentRequest == nil {
+		return localVarReturnValue, nil, reportError("sendDocumentRequest is required and must be specified")
 	}
 
 	localVarQueryParams.Add("to", parameterToString(*r.to, ""))
@@ -832,7 +832,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.instancesInstanceKeySendDocumentPostRequest
+	localVarPostBody = r.sendDocumentRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -927,48 +927,48 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendDocumentPostExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendImagePostRequest struct {
+type ApiSendImageRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
 	to *string
-	instancesInstanceKeySendImagePostRequest *InstancesInstanceKeySendImagePostRequest
+	sendImageRequest *SendImageRequest
 	caption *string
 }
 
 // The recipient&#39;s number
-func (r ApiInstancesInstanceKeySendImagePostRequest) To(to string) ApiInstancesInstanceKeySendImagePostRequest {
+func (r ApiSendImageRequest) To(to string) ApiSendImageRequest {
 	r.to = &to
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendImagePostRequest) InstancesInstanceKeySendImagePostRequest(instancesInstanceKeySendImagePostRequest InstancesInstanceKeySendImagePostRequest) ApiInstancesInstanceKeySendImagePostRequest {
-	r.instancesInstanceKeySendImagePostRequest = &instancesInstanceKeySendImagePostRequest
+func (r ApiSendImageRequest) SendImageRequest(sendImageRequest SendImageRequest) ApiSendImageRequest {
+	r.sendImageRequest = &sendImageRequest
 	return r
 }
 
 // Attached caption
-func (r ApiInstancesInstanceKeySendImagePostRequest) Caption(caption string) ApiInstancesInstanceKeySendImagePostRequest {
+func (r ApiSendImageRequest) Caption(caption string) ApiSendImageRequest {
 	r.caption = &caption
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendImagePostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendImagePostExecute(r)
+func (r ApiSendImageRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendImageExecute(r)
 }
 
 /*
-InstancesInstanceKeySendImagePost Send raw image.
+SendImage Send raw image.
 
 Sends a image message by uploading to the WhatsApp servers every time.
 This is not recommended for bulk sending.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendImagePostRequest
+ @return ApiSendImageRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendImagePost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendImagePostRequest {
-	return ApiInstancesInstanceKeySendImagePostRequest{
+func (a *MessageSendingApiService) SendImage(ctx context.Context, instanceKey string) ApiSendImageRequest {
+	return ApiSendImageRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -977,7 +977,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePost(ctx context
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r ApiInstancesInstanceKeySendImagePostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendImageExecute(r ApiSendImageRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -985,7 +985,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendImagePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendImage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -999,8 +999,8 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 	if r.to == nil {
 		return localVarReturnValue, nil, reportError("to is required and must be specified")
 	}
-	if r.instancesInstanceKeySendImagePostRequest == nil {
-		return localVarReturnValue, nil, reportError("instancesInstanceKeySendImagePostRequest is required and must be specified")
+	if r.sendImageRequest == nil {
+		return localVarReturnValue, nil, reportError("sendImageRequest is required and must be specified")
 	}
 
 	localVarQueryParams.Add("to", parameterToString(*r.to, ""))
@@ -1025,7 +1025,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.instancesInstanceKeySendImagePostRequest
+	localVarPostBody = r.sendImageRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1120,7 +1120,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendImagePostExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendListPostRequest struct {
+type ApiSendListMessageRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
@@ -1128,26 +1128,26 @@ type ApiInstancesInstanceKeySendListPostRequest struct {
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendListPostRequest) Data(data ListMessagePayload) ApiInstancesInstanceKeySendListPostRequest {
+func (r ApiSendListMessageRequest) Data(data ListMessagePayload) ApiSendListMessageRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendListPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendListPostExecute(r)
+func (r ApiSendListMessageRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendListMessageExecute(r)
 }
 
 /*
-InstancesInstanceKeySendListPost Send a List message.
+SendListMessage Send a List message.
 
 Sends an interactive List message to the given user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendListPostRequest
+ @return ApiSendListMessageRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendListPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendListPostRequest {
-	return ApiInstancesInstanceKeySendListPostRequest{
+func (a *MessageSendingApiService) SendListMessage(ctx context.Context, instanceKey string) ApiSendListMessageRequest {
+	return ApiSendListMessageRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -1156,7 +1156,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPost(ctx context.
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r ApiInstancesInstanceKeySendListPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendListMessageExecute(r ApiSendListMessageRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1164,7 +1164,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r Api
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendListPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendListMessage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1292,7 +1292,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendListPostExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendLocationPostRequest struct {
+type ApiSendLocationRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
@@ -1300,27 +1300,27 @@ type ApiInstancesInstanceKeySendLocationPostRequest struct {
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendLocationPostRequest) Data(data LocationMessagePayload) ApiInstancesInstanceKeySendLocationPostRequest {
+func (r ApiSendLocationRequest) Data(data LocationMessagePayload) ApiSendLocationRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendLocationPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendLocationPostExecute(r)
+func (r ApiSendLocationRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendLocationExecute(r)
 }
 
 /*
-InstancesInstanceKeySendLocationPost Send a location message.
+SendLocation Send a location message.
 
 Sends a location message to the given user. This is static location and does not update
 Note: The Address and Url fields are optional
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendLocationPostRequest
+ @return ApiSendLocationRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendLocationPostRequest {
-	return ApiInstancesInstanceKeySendLocationPostRequest{
+func (a *MessageSendingApiService) SendLocation(ctx context.Context, instanceKey string) ApiSendLocationRequest {
+	return ApiSendLocationRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -1329,7 +1329,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPost(ctx cont
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r ApiInstancesInstanceKeySendLocationPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendLocationExecute(r ApiSendLocationRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1337,7 +1337,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendLocationPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendLocation")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1465,7 +1465,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendLocationPostExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendMediaPostRequest struct {
+type ApiSendMediaMessageRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
@@ -1473,26 +1473,26 @@ type ApiInstancesInstanceKeySendMediaPostRequest struct {
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendMediaPostRequest) Data(data SendMediaPayload) ApiInstancesInstanceKeySendMediaPostRequest {
+func (r ApiSendMediaMessageRequest) Data(data SendMediaPayload) ApiSendMediaMessageRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendMediaPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendMediaPostExecute(r)
+func (r ApiSendMediaMessageRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendMediaMessageExecute(r)
 }
 
 /*
-InstancesInstanceKeySendMediaPost Send a media message.
+SendMediaMessage Send a media message.
 
 Sends a media message to the given user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendMediaPostRequest
+ @return ApiSendMediaMessageRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendMediaPostRequest {
-	return ApiInstancesInstanceKeySendMediaPostRequest{
+func (a *MessageSendingApiService) SendMediaMessage(ctx context.Context, instanceKey string) ApiSendMediaMessageRequest {
+	return ApiSendMediaMessageRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -1501,7 +1501,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPost(ctx context
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r ApiInstancesInstanceKeySendMediaPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendMediaMessageExecute(r ApiSendMediaMessageRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1509,7 +1509,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r Ap
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendMediaPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendMediaMessage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1637,7 +1637,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendMediaPostExecute(r Ap
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendPollPostRequest struct {
+type ApiSendPollMessageRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
@@ -1645,27 +1645,27 @@ type ApiInstancesInstanceKeySendPollPostRequest struct {
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendPollPostRequest) Data(data PollMessagePayload) ApiInstancesInstanceKeySendPollPostRequest {
+func (r ApiSendPollMessageRequest) Data(data PollMessagePayload) ApiSendPollMessageRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendPollPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendPollPostExecute(r)
+func (r ApiSendPollMessageRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendPollMessageExecute(r)
 }
 
 /*
-InstancesInstanceKeySendPollPost Send a Poll message.
+SendPollMessage Send a Poll message.
 
 Sends an interactive poll message to the given user.
 The poll message is a new feature that is currently in beta.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendPollPostRequest
+ @return ApiSendPollMessageRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendPollPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendPollPostRequest {
-	return ApiInstancesInstanceKeySendPollPostRequest{
+func (a *MessageSendingApiService) SendPollMessage(ctx context.Context, instanceKey string) ApiSendPollMessageRequest {
+	return ApiSendPollMessageRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -1674,7 +1674,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPost(ctx context.
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r ApiInstancesInstanceKeySendPollPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendPollMessageExecute(r ApiSendPollMessageRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -1682,7 +1682,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r Api
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendPollPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendPollMessage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1810,180 +1810,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendPollPostExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendTemplateMediaPostRequest struct {
-	ctx context.Context
-	ApiService *MessageSendingApiService
-	instanceKey string
-	data *TemplateButtonWithMediaPayload
-}
-
-// Message data
-func (r ApiInstancesInstanceKeySendTemplateMediaPostRequest) Data(data TemplateButtonWithMediaPayload) ApiInstancesInstanceKeySendTemplateMediaPostRequest {
-	r.data = &data
-	return r
-}
-
-func (r ApiInstancesInstanceKeySendTemplateMediaPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendTemplateMediaPostExecute(r)
-}
-
-/*
-InstancesInstanceKeySendTemplateMediaPost Send a template message with media.
-
-Sends an interactive template message with a media header to the given user.
-Note: The valid button types are "replyButton", "urlButton", "callButton"
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendTemplateMediaPostRequest
-*/
-func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendTemplateMediaPostRequest {
-	return ApiInstancesInstanceKeySendTemplateMediaPostRequest{
-		ApiService: a,
-		ctx: ctx,
-		instanceKey: instanceKey,
-	}
-}
-
-// Execute executes the request
-//  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendTemplateMediaPostExecute(r ApiInstancesInstanceKeySendTemplateMediaPostRequest) (*APIResponse, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *APIResponse
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendTemplateMediaPost")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/instances/{instance_key}/send/template-media"
-	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.data == nil {
-		return localVarReturnValue, nil, reportError("data is required and must be specified")
-	}
-
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{"application/json"}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"*/*"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	// body params
-	localVarPostBody = r.data
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKeyAuth"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["Authorization"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v APIResponse
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-            		newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiInstancesInstanceKeySendTemplatePostRequest struct {
+type ApiSendTemplateRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
@@ -1991,27 +1818,27 @@ type ApiInstancesInstanceKeySendTemplatePostRequest struct {
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendTemplatePostRequest) Data(data TemplateButtonPayload) ApiInstancesInstanceKeySendTemplatePostRequest {
+func (r ApiSendTemplateRequest) Data(data TemplateButtonPayload) ApiSendTemplateRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendTemplatePostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendTemplatePostExecute(r)
+func (r ApiSendTemplateRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendTemplateExecute(r)
 }
 
 /*
-InstancesInstanceKeySendTemplatePost Send a template message.
+SendTemplate Send a template message.
 
 Sends an interactive template message to the given user.
 Note: The valid button types are "replyButton", "urlButton", "callButton"
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendTemplatePostRequest
+ @return ApiSendTemplateRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendTemplatePostRequest {
-	return ApiInstancesInstanceKeySendTemplatePostRequest{
+func (a *MessageSendingApiService) SendTemplate(ctx context.Context, instanceKey string) ApiSendTemplateRequest {
+	return ApiSendTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -2020,7 +1847,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePost(ctx cont
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r ApiInstancesInstanceKeySendTemplatePostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendTemplateExecute(r ApiSendTemplateRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2028,7 +1855,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendTemplatePost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendTemplate")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2156,34 +1983,35 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTemplatePostExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendTextPostRequest struct {
+type ApiSendTemplateWithMediaRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	data *TextMessage
+	data *TemplateButtonWithMediaPayload
 }
 
 // Message data
-func (r ApiInstancesInstanceKeySendTextPostRequest) Data(data TextMessage) ApiInstancesInstanceKeySendTextPostRequest {
+func (r ApiSendTemplateWithMediaRequest) Data(data TemplateButtonWithMediaPayload) ApiSendTemplateWithMediaRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendTextPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendTextPostExecute(r)
+func (r ApiSendTemplateWithMediaRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendTemplateWithMediaExecute(r)
 }
 
 /*
-InstancesInstanceKeySendTextPost Send a text message.
+SendTemplateWithMedia Send a template message with media.
 
-Sends a text message to the given user.
+Sends an interactive template message with a media header to the given user.
+Note: The valid button types are "replyButton", "urlButton", "callButton"
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendTextPostRequest
+ @return ApiSendTemplateWithMediaRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendTextPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendTextPostRequest {
-	return ApiInstancesInstanceKeySendTextPostRequest{
+func (a *MessageSendingApiService) SendTemplateWithMedia(ctx context.Context, instanceKey string) ApiSendTemplateWithMediaRequest {
+	return ApiSendTemplateWithMediaRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -2192,7 +2020,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPost(ctx context.
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r ApiInstancesInstanceKeySendTextPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendTemplateWithMediaExecute(r ApiSendTemplateWithMediaRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2200,7 +2028,179 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r Api
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendTextPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendTemplateWithMedia")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/instances/{instance_key}/send/template-media"
+	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.data == nil {
+		return localVarReturnValue, nil, reportError("data is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"*/*"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.data
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKeyAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSendTextMessageRequest struct {
+	ctx context.Context
+	ApiService *MessageSendingApiService
+	instanceKey string
+	data *TextMessage
+}
+
+// Message data
+func (r ApiSendTextMessageRequest) Data(data TextMessage) ApiSendTextMessageRequest {
+	r.data = &data
+	return r
+}
+
+func (r ApiSendTextMessageRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendTextMessageExecute(r)
+}
+
+/*
+SendTextMessage Send a text message.
+
+Sends a text message to the given user.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param instanceKey Instance key
+ @return ApiSendTextMessageRequest
+*/
+func (a *MessageSendingApiService) SendTextMessage(ctx context.Context, instanceKey string) ApiSendTextMessageRequest {
+	return ApiSendTextMessageRequest{
+		ApiService: a,
+		ctx: ctx,
+		instanceKey: instanceKey,
+	}
+}
+
+// Execute executes the request
+//  @return APIResponse
+func (a *MessageSendingApiService) SendTextMessageExecute(r ApiSendTextMessageRequest) (*APIResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *APIResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendTextMessage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2328,41 +2328,48 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendTextPostExecute(r Api
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendUploadPostRequest struct {
+type ApiSendVideoRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	type_ *string
-	instancesInstanceKeySendUploadPostRequest *InstancesInstanceKeySendUploadPostRequest
+	to *string
+	sendVideoRequest *SendVideoRequest
+	caption *string
 }
 
-// Media type
-func (r ApiInstancesInstanceKeySendUploadPostRequest) Type_(type_ string) ApiInstancesInstanceKeySendUploadPostRequest {
-	r.type_ = &type_
+// The recipient&#39;s number
+func (r ApiSendVideoRequest) To(to string) ApiSendVideoRequest {
+	r.to = &to
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendUploadPostRequest) InstancesInstanceKeySendUploadPostRequest(instancesInstanceKeySendUploadPostRequest InstancesInstanceKeySendUploadPostRequest) ApiInstancesInstanceKeySendUploadPostRequest {
-	r.instancesInstanceKeySendUploadPostRequest = &instancesInstanceKeySendUploadPostRequest
+func (r ApiSendVideoRequest) SendVideoRequest(sendVideoRequest SendVideoRequest) ApiSendVideoRequest {
+	r.sendVideoRequest = &sendVideoRequest
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendUploadPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendUploadPostExecute(r)
+// Attached caption
+func (r ApiSendVideoRequest) Caption(caption string) ApiSendVideoRequest {
+	r.caption = &caption
+	return r
+}
+
+func (r ApiSendVideoRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendVideoExecute(r)
 }
 
 /*
-InstancesInstanceKeySendUploadPost Upload media.
+SendVideo Send raw video.
 
-Uploads media to WhatsApp servers and returns the media keys.
-Store the returned media keys, as you will need them to send media messages
+Sends a video message by uploading to the WhatsApp servers every time.
+This is not recommended for bulk sending.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendUploadPostRequest
+ @return ApiSendVideoRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendUploadPostRequest {
-	return ApiInstancesInstanceKeySendUploadPostRequest{
+func (a *MessageSendingApiService) SendVideo(ctx context.Context, instanceKey string) ApiSendVideoRequest {
+	return ApiSendVideoRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -2371,7 +2378,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPost(ctx contex
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r ApiInstancesInstanceKeySendUploadPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) SendVideoExecute(r ApiSendVideoRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2379,25 +2386,28 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r A
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendUploadPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendVideo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/instances/{instance_key}/send/upload"
+	localVarPath := localBasePath + "/instances/{instance_key}/send/video"
 	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.type_ == nil {
-		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
+	if r.to == nil {
+		return localVarReturnValue, nil, reportError("to is required and must be specified")
 	}
-	if r.instancesInstanceKeySendUploadPostRequest == nil {
-		return localVarReturnValue, nil, reportError("instancesInstanceKeySendUploadPostRequest is required and must be specified")
+	if r.sendVideoRequest == nil {
+		return localVarReturnValue, nil, reportError("sendVideoRequest is required and must be specified")
 	}
 
-	localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
+	localVarQueryParams.Add("to", parameterToString(*r.to, ""))
+	if r.caption != nil {
+		localVarQueryParams.Add("caption", parameterToString(*r.caption, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -2416,7 +2426,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r A
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.instancesInstanceKeySendUploadPostRequest
+	localVarPostBody = r.sendVideoRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -2511,48 +2521,41 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendUploadPostExecute(r A
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeySendVideoPostRequest struct {
+type ApiUploadMediaRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
-	to *string
-	instancesInstanceKeySendVideoPostRequest *InstancesInstanceKeySendVideoPostRequest
-	caption *string
+	type_ *string
+	uploadMediaRequest *UploadMediaRequest
 }
 
-// The recipient&#39;s number
-func (r ApiInstancesInstanceKeySendVideoPostRequest) To(to string) ApiInstancesInstanceKeySendVideoPostRequest {
-	r.to = &to
+// Media type
+func (r ApiUploadMediaRequest) Type_(type_ string) ApiUploadMediaRequest {
+	r.type_ = &type_
 	return r
 }
 
-func (r ApiInstancesInstanceKeySendVideoPostRequest) InstancesInstanceKeySendVideoPostRequest(instancesInstanceKeySendVideoPostRequest InstancesInstanceKeySendVideoPostRequest) ApiInstancesInstanceKeySendVideoPostRequest {
-	r.instancesInstanceKeySendVideoPostRequest = &instancesInstanceKeySendVideoPostRequest
+func (r ApiUploadMediaRequest) UploadMediaRequest(uploadMediaRequest UploadMediaRequest) ApiUploadMediaRequest {
+	r.uploadMediaRequest = &uploadMediaRequest
 	return r
 }
 
-// Attached caption
-func (r ApiInstancesInstanceKeySendVideoPostRequest) Caption(caption string) ApiInstancesInstanceKeySendVideoPostRequest {
-	r.caption = &caption
-	return r
-}
-
-func (r ApiInstancesInstanceKeySendVideoPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeySendVideoPostExecute(r)
+func (r ApiUploadMediaRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.UploadMediaExecute(r)
 }
 
 /*
-InstancesInstanceKeySendVideoPost Send raw video.
+UploadMedia Upload media.
 
-Sends a video message by uploading to the WhatsApp servers every time.
-This is not recommended for bulk sending.
+Uploads media to WhatsApp servers and returns the media keys.
+Store the returned media keys, as you will need them to send media messages
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeySendVideoPostRequest
+ @return ApiUploadMediaRequest
 */
-func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeySendVideoPostRequest {
-	return ApiInstancesInstanceKeySendVideoPostRequest{
+func (a *MessageSendingApiService) UploadMedia(ctx context.Context, instanceKey string) ApiUploadMediaRequest {
+	return ApiUploadMediaRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -2561,7 +2564,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPost(ctx context
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r ApiInstancesInstanceKeySendVideoPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MessageSendingApiService) UploadMediaExecute(r ApiUploadMediaRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -2569,28 +2572,25 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r Ap
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.InstancesInstanceKeySendVideoPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.UploadMedia")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/instances/{instance_key}/send/video"
+	localVarPath := localBasePath + "/instances/{instance_key}/send/upload"
 	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.to == nil {
-		return localVarReturnValue, nil, reportError("to is required and must be specified")
+	if r.type_ == nil {
+		return localVarReturnValue, nil, reportError("type_ is required and must be specified")
 	}
-	if r.instancesInstanceKeySendVideoPostRequest == nil {
-		return localVarReturnValue, nil, reportError("instancesInstanceKeySendVideoPostRequest is required and must be specified")
+	if r.uploadMediaRequest == nil {
+		return localVarReturnValue, nil, reportError("uploadMediaRequest is required and must be specified")
 	}
 
-	localVarQueryParams.Add("to", parameterToString(*r.to, ""))
-	if r.caption != nil {
-		localVarQueryParams.Add("caption", parameterToString(*r.caption, ""))
-	}
+	localVarQueryParams.Add("type", parameterToString(*r.type_, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
 
@@ -2609,7 +2609,7 @@ func (a *MessageSendingApiService) InstancesInstanceKeySendVideoPostExecute(r Ap
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.instancesInstanceKeySendVideoPostRequest
+	localVarPostBody = r.uploadMediaRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

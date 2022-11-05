@@ -24,7 +24,7 @@ import (
 // MiscellaneousApiService MiscellaneousApi service
 type MiscellaneousApiService service
 
-type ApiInstancesInstanceKeyMiscProfilePicGetRequest struct {
+type ApiGetProfilePicRequest struct {
 	ctx context.Context
 	ApiService *MiscellaneousApiService
 	instanceKey string
@@ -32,26 +32,26 @@ type ApiInstancesInstanceKeyMiscProfilePicGetRequest struct {
 }
 
 // JID
-func (r ApiInstancesInstanceKeyMiscProfilePicGetRequest) Jid(jid string) ApiInstancesInstanceKeyMiscProfilePicGetRequest {
+func (r ApiGetProfilePicRequest) Jid(jid string) ApiGetProfilePicRequest {
 	r.jid = &jid
 	return r
 }
 
-func (r ApiInstancesInstanceKeyMiscProfilePicGetRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeyMiscProfilePicGetExecute(r)
+func (r ApiGetProfilePicRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.GetProfilePicExecute(r)
 }
 
 /*
-InstancesInstanceKeyMiscProfilePicGet Get profile pic.
+GetProfilePic Get profile pic.
 
 Returns the profile pic of the given user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeyMiscProfilePicGetRequest
+ @return ApiGetProfilePicRequest
 */
-func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGet(ctx context.Context, instanceKey string) ApiInstancesInstanceKeyMiscProfilePicGetRequest {
-	return ApiInstancesInstanceKeyMiscProfilePicGetRequest{
+func (a *MiscellaneousApiService) GetProfilePic(ctx context.Context, instanceKey string) ApiGetProfilePicRequest {
+	return ApiGetProfilePicRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -60,7 +60,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGet(ctx cont
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r ApiInstancesInstanceKeyMiscProfilePicGetRequest) (*APIResponse, *http.Response, error) {
+func (a *MiscellaneousApiService) GetProfilePicExecute(r ApiGetProfilePicRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -68,7 +68,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscellaneousApiService.InstancesInstanceKeyMiscProfilePicGet")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscellaneousApiService.GetProfilePic")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -195,7 +195,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscProfilePicGetExecute(r
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiInstancesInstanceKeyMiscUserInfoPostRequest struct {
+type ApiGetUsersInfoRequest struct {
 	ctx context.Context
 	ApiService *MiscellaneousApiService
 	instanceKey string
@@ -203,26 +203,26 @@ type ApiInstancesInstanceKeyMiscUserInfoPostRequest struct {
 }
 
 // Data
-func (r ApiInstancesInstanceKeyMiscUserInfoPostRequest) Data(data UserInfoPayload) ApiInstancesInstanceKeyMiscUserInfoPostRequest {
+func (r ApiGetUsersInfoRequest) Data(data UserInfoPayload) ApiGetUsersInfoRequest {
 	r.data = &data
 	return r
 }
 
-func (r ApiInstancesInstanceKeyMiscUserInfoPostRequest) Execute() (*APIResponse, *http.Response, error) {
-	return r.ApiService.InstancesInstanceKeyMiscUserInfoPostExecute(r)
+func (r ApiGetUsersInfoRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.GetUsersInfoExecute(r)
 }
 
 /*
-InstancesInstanceKeyMiscUserInfoPost Fetches the users info.
+GetUsersInfo Fetches the users info.
 
 Gets the user info for the given user ids. This does not checks if user is registered or not
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param instanceKey Instance key
- @return ApiInstancesInstanceKeyMiscUserInfoPostRequest
+ @return ApiGetUsersInfoRequest
 */
-func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPost(ctx context.Context, instanceKey string) ApiInstancesInstanceKeyMiscUserInfoPostRequest {
-	return ApiInstancesInstanceKeyMiscUserInfoPostRequest{
+func (a *MiscellaneousApiService) GetUsersInfo(ctx context.Context, instanceKey string) ApiGetUsersInfoRequest {
+	return ApiGetUsersInfoRequest{
 		ApiService: a,
 		ctx: ctx,
 		instanceKey: instanceKey,
@@ -231,7 +231,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPost(ctx conte
 
 // Execute executes the request
 //  @return APIResponse
-func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r ApiInstancesInstanceKeyMiscUserInfoPostRequest) (*APIResponse, *http.Response, error) {
+func (a *MiscellaneousApiService) GetUsersInfoExecute(r ApiGetUsersInfoRequest) (*APIResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -239,7 +239,7 @@ func (a *MiscellaneousApiService) InstancesInstanceKeyMiscUserInfoPostExecute(r 
 		localVarReturnValue  *APIResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscellaneousApiService.InstancesInstanceKeyMiscUserInfoPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MiscellaneousApiService.GetUsersInfo")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

@@ -4,30 +4,30 @@ All URIs are relative to */api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**InstancesInstanceKeyGroupsAdminGet**](GroupManagementApi.md#InstancesInstanceKeyGroupsAdminGet) | **Get** /instances/{instance_key}/groups/admin | Get admin groupss.
-[**InstancesInstanceKeyGroupsCreatePost**](GroupManagementApi.md#InstancesInstanceKeyGroupsCreatePost) | **Post** /instances/{instance_key}/groups/create | Create group.
-[**InstancesInstanceKeyGroupsGet**](GroupManagementApi.md#InstancesInstanceKeyGroupsGet) | **Get** /instances/{instance_key}/groups/ | Get all groups.
-[**InstancesInstanceKeyGroupsGroupIdAnnouncePut**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdAnnouncePut) | **Put** /instances/{instance_key}/groups/{group_id}/announce | Set group announce.
-[**InstancesInstanceKeyGroupsGroupIdDelete**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdDelete) | **Delete** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
-[**InstancesInstanceKeyGroupsGroupIdDescriptionPut**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdDescriptionPut) | **Put** /instances/{instance_key}/groups/{group_id}/description | Set group description.
-[**InstancesInstanceKeyGroupsGroupIdGet**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdGet) | **Get** /instances/{instance_key}/groups/{group_id} | Get group.
-[**InstancesInstanceKeyGroupsGroupIdInviteCodeGet**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdInviteCodeGet) | **Get** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
-[**InstancesInstanceKeyGroupsGroupIdLockPut**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdLockPut) | **Put** /instances/{instance_key}/groups/{group_id}/lock | Set group locked.
-[**InstancesInstanceKeyGroupsGroupIdNamePut**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdNamePut) | **Put** /instances/{instance_key}/groups/{group_id}/name | Set group name.
-[**InstancesInstanceKeyGroupsGroupIdParticipantsAddPost**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdParticipantsAddPost) | **Post** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
-[**InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut) | **Put** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
-[**InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut) | **Put** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
-[**InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete) | **Delete** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
-[**InstancesInstanceKeyGroupsGroupIdProfilePicPut**](GroupManagementApi.md#InstancesInstanceKeyGroupsGroupIdProfilePicPut) | **Put** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
-[**InstancesInstanceKeyGroupsInviteInfoGet**](GroupManagementApi.md#InstancesInstanceKeyGroupsInviteInfoGet) | **Get** /instances/{instance_key}/groups/invite-info | Get group from invite link.
+[**AddParticipant**](GroupManagementApi.md#AddParticipant) | **Post** /instances/{instance_key}/groups/{group_id}/participants/add | Add participant.
+[**CreateGroup**](GroupManagementApi.md#CreateGroup) | **Post** /instances/{instance_key}/groups/create | Create group.
+[**DemoteParticipant**](GroupManagementApi.md#DemoteParticipant) | **Put** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
+[**GetAdminGroups**](GroupManagementApi.md#GetAdminGroups) | **Get** /instances/{instance_key}/groups/admin | Get admin groups.
+[**GetAllGroups**](GroupManagementApi.md#GetAllGroups) | **Get** /instances/{instance_key}/groups/ | Get all groups.
+[**GetGroup**](GroupManagementApi.md#GetGroup) | **Get** /instances/{instance_key}/groups/{group_id} | Get group.
+[**GetGroupFromInviteLink**](GroupManagementApi.md#GetGroupFromInviteLink) | **Get** /instances/{instance_key}/groups/invite-info | Get group from invite link.
+[**GetGroupInviteCode**](GroupManagementApi.md#GetGroupInviteCode) | **Get** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
+[**LeaveGroup**](GroupManagementApi.md#LeaveGroup) | **Delete** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
+[**PromoteParticipant**](GroupManagementApi.md#PromoteParticipant) | **Put** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
+[**RemoveParticipant**](GroupManagementApi.md#RemoveParticipant) | **Delete** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
+[**SetGroupAnnounce**](GroupManagementApi.md#SetGroupAnnounce) | **Put** /instances/{instance_key}/groups/{group_id}/announce | Set group announce.
+[**SetGroupDescription**](GroupManagementApi.md#SetGroupDescription) | **Put** /instances/{instance_key}/groups/{group_id}/description | Set group description.
+[**SetGroupLocked**](GroupManagementApi.md#SetGroupLocked) | **Put** /instances/{instance_key}/groups/{group_id}/lock | Set group locked.
+[**SetGroupName**](GroupManagementApi.md#SetGroupName) | **Put** /instances/{instance_key}/groups/{group_id}/name | Set group name.
+[**SetGroupPicture**](GroupManagementApi.md#SetGroupPicture) | **Put** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
 
 
 
-## InstancesInstanceKeyGroupsAdminGet
+## AddParticipant
 
-> APIResponse InstancesInstanceKeyGroupsAdminGet(ctx, instanceKey).Execute()
+> APIResponse AddParticipant(ctx, instanceKey, groupId).Data(data).Execute()
 
-Get admin groupss.
+Add participant.
 
 
 
@@ -45,16 +45,18 @@ import (
 
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsAdminGet(context.Background(), instanceKey).Execute()
+    resp, r, err := apiClient.GroupManagementApi.AddParticipant(context.Background(), instanceKey, groupId).Data(data).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsAdminGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.AddParticipant``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsAdminGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsAdminGet`: %v\n", resp)
+    // response from `AddParticipant`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.AddParticipant`: %v\n", resp)
 }
 ```
 
@@ -65,15 +67,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsAdminGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiAddParticipantRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
 
 ### Return type
 
@@ -85,7 +90,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -93,9 +98,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyGroupsCreatePost
+## CreateGroup
 
-> APIResponse InstancesInstanceKeyGroupsCreatePost(ctx, instanceKey).Data(data).Execute()
+> APIResponse CreateGroup(ctx, instanceKey).Data(data).Execute()
 
 Create group.
 
@@ -119,13 +124,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsCreatePost(context.Background(), instanceKey).Data(data).Execute()
+    resp, r, err := apiClient.GroupManagementApi.CreateGroup(context.Background(), instanceKey).Data(data).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsCreatePost``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.CreateGroup``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsCreatePost`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsCreatePost`: %v\n", resp)
+    // response from `CreateGroup`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.CreateGroup`: %v\n", resp)
 }
 ```
 
@@ -139,7 +144,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsCreatePostRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateGroupRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -165,9 +170,154 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyGroupsGet
+## DemoteParticipant
 
-> APIResponse InstancesInstanceKeyGroupsGet(ctx, instanceKey).IncludeParticipants(includeParticipants).Execute()
+> APIResponse DemoteParticipant(ctx, instanceKey, groupId).Data(data).Execute()
+
+Demote participant.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.DemoteParticipant(context.Background(), instanceKey, groupId).Data(data).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.DemoteParticipant``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DemoteParticipant`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.DemoteParticipant`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDemoteParticipantRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAdminGroups
+
+> APIResponse GetAdminGroups(ctx, instanceKey).Execute()
+
+Get admin groups.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.GetAdminGroups(context.Background(), instanceKey).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.GetAdminGroups``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAdminGroups`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.GetAdminGroups`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAdminGroupsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetAllGroups
+
+> APIResponse GetAllGroups(ctx, instanceKey).IncludeParticipants(includeParticipants).Execute()
 
 Get all groups.
 
@@ -191,13 +341,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGet(context.Background(), instanceKey).IncludeParticipants(includeParticipants).Execute()
+    resp, r, err := apiClient.GroupManagementApi.GetAllGroups(context.Background(), instanceKey).IncludeParticipants(includeParticipants).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGet``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.GetAllGroups``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGet`: %v\n", resp)
+    // response from `GetAllGroups`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.GetAllGroups`: %v\n", resp)
 }
 ```
 
@@ -211,7 +361,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGetRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetAllGroupsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -237,9 +387,450 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyGroupsGroupIdAnnouncePut
+## GetGroup
 
-> APIResponse InstancesInstanceKeyGroupsGroupIdAnnouncePut(ctx, instanceKey, announce, groupId).Execute()
+> APIResponse GetGroup(ctx, instanceKey, groupId).Execute()
+
+Get group.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.GetGroup(context.Background(), instanceKey, groupId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.GetGroup``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetGroup`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.GetGroup`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGroupRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGroupFromInviteLink
+
+> APIResponse GetGroupFromInviteLink(ctx, instanceKey).InviteLink(inviteLink).Execute()
+
+Get group from invite link.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    inviteLink := "inviteLink_example" // string | The invite link to check
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.GetGroupFromInviteLink(context.Background(), instanceKey).InviteLink(inviteLink).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.GetGroupFromInviteLink``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetGroupFromInviteLink`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.GetGroupFromInviteLink`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGroupFromInviteLinkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inviteLink** | **string** | The invite link to check | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetGroupInviteCode
+
+> APIResponse GetGroupInviteCode(ctx, instanceKey, groupId).Execute()
+
+Get group invite code.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.GetGroupInviteCode(context.Background(), instanceKey, groupId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.GetGroupInviteCode``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetGroupInviteCode`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.GetGroupInviteCode`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetGroupInviteCodeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## LeaveGroup
+
+> APIResponse LeaveGroup(ctx, instanceKey, groupId).Execute()
+
+Leaves the group.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.LeaveGroup(context.Background(), instanceKey, groupId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.LeaveGroup``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `LeaveGroup`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.LeaveGroup`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLeaveGroupRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## PromoteParticipant
+
+> APIResponse PromoteParticipant(ctx, instanceKey, groupId).Data(data).Execute()
+
+Promote participant.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.PromoteParticipant(context.Background(), instanceKey, groupId).Data(data).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.PromoteParticipant``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PromoteParticipant`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.PromoteParticipant`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPromoteParticipantRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemoveParticipant
+
+> APIResponse RemoveParticipant(ctx, instanceKey, groupId).Data(data).Execute()
+
+Remove participant.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.RemoveParticipant(context.Background(), instanceKey, groupId).Data(data).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.RemoveParticipant``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RemoveParticipant`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.RemoveParticipant`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRemoveParticipantRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## SetGroupAnnounce
+
+> APIResponse SetGroupAnnounce(ctx, instanceKey, announce, groupId).Execute()
 
 Set group announce.
 
@@ -264,13 +855,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdAnnouncePut(context.Background(), instanceKey, announce, groupId).Execute()
+    resp, r, err := apiClient.GroupManagementApi.SetGroupAnnounce(context.Background(), instanceKey, announce, groupId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdAnnouncePut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.SetGroupAnnounce``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdAnnouncePut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdAnnouncePut`: %v\n", resp)
+    // response from `SetGroupAnnounce`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.SetGroupAnnounce`: %v\n", resp)
 }
 ```
 
@@ -286,7 +877,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdAnnouncePutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSetGroupAnnounceRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -313,82 +904,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyGroupsGroupIdDelete
+## SetGroupDescription
 
-> APIResponse InstancesInstanceKeyGroupsGroupIdDelete(ctx, instanceKey, groupId).Execute()
-
-Leaves the group.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    groupId := "groupId_example" // string | Group id of the group
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDelete(context.Background(), instanceKey, groupId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsGroupIdDelete`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-**groupId** | **string** | Group id of the group | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsGroupIdDescriptionPut
-
-> APIResponse InstancesInstanceKeyGroupsGroupIdDescriptionPut(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse SetGroupDescription(ctx, instanceKey, groupId).Data(data).Execute()
 
 Set group description.
 
@@ -413,13 +931,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDescriptionPut(context.Background(), instanceKey, groupId).Data(data).Execute()
+    resp, r, err := apiClient.GroupManagementApi.SetGroupDescription(context.Background(), instanceKey, groupId).Data(data).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDescriptionPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.SetGroupDescription``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdDescriptionPut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdDescriptionPut`: %v\n", resp)
+    // response from `SetGroupDescription`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.SetGroupDescription`: %v\n", resp)
 }
 ```
 
@@ -434,7 +952,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdDescriptionPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSetGroupDescriptionRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -461,155 +979,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyGroupsGroupIdGet
+## SetGroupLocked
 
-> APIResponse InstancesInstanceKeyGroupsGroupIdGet(ctx, instanceKey, groupId).Execute()
-
-Get group.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    groupId := "groupId_example" // string | Group id of the group
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdGet(context.Background(), instanceKey, groupId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsGroupIdGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-**groupId** | **string** | Group id of the group | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsGroupIdInviteCodeGet
-
-> APIResponse InstancesInstanceKeyGroupsGroupIdInviteCodeGet(ctx, instanceKey, groupId).Execute()
-
-Get group invite code.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    groupId := "groupId_example" // string | Group id of the group
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdInviteCodeGet(context.Background(), instanceKey, groupId).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdInviteCodeGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsGroupIdInviteCodeGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdInviteCodeGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-**groupId** | **string** | Group id of the group | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdInviteCodeGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsGroupIdLockPut
-
-> APIResponse InstancesInstanceKeyGroupsGroupIdLockPut(ctx, instanceKey, locked, groupId).Execute()
+> APIResponse SetGroupLocked(ctx, instanceKey, locked, groupId).Execute()
 
 Set group locked.
 
@@ -634,13 +1006,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdLockPut(context.Background(), instanceKey, locked, groupId).Execute()
+    resp, r, err := apiClient.GroupManagementApi.SetGroupLocked(context.Background(), instanceKey, locked, groupId).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdLockPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.SetGroupLocked``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdLockPut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdLockPut`: %v\n", resp)
+    // response from `SetGroupLocked`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.SetGroupLocked`: %v\n", resp)
 }
 ```
 
@@ -656,7 +1028,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdLockPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSetGroupLockedRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -683,9 +1055,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyGroupsGroupIdNamePut
+## SetGroupName
 
-> APIResponse InstancesInstanceKeyGroupsGroupIdNamePut(ctx, instanceKey, groupId).Data(data).Execute()
+> APIResponse SetGroupName(ctx, instanceKey, groupId).Data(data).Execute()
 
 Set group name.
 
@@ -710,13 +1082,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdNamePut(context.Background(), instanceKey, groupId).Data(data).Execute()
+    resp, r, err := apiClient.GroupManagementApi.SetGroupName(context.Background(), instanceKey, groupId).Data(data).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdNamePut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.SetGroupName``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdNamePut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdNamePut`: %v\n", resp)
+    // response from `SetGroupName`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.SetGroupName`: %v\n", resp)
 }
 ```
 
@@ -731,7 +1103,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdNamePutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSetGroupNameRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -758,309 +1130,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## InstancesInstanceKeyGroupsGroupIdParticipantsAddPost
+## SetGroupPicture
 
-> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsAddPost(ctx, instanceKey, groupId).Data(data).Execute()
-
-Add participant.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsAddPost(context.Background(), instanceKey, groupId).Data(data).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsAddPost``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsAddPost`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsAddPost`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-**groupId** | **string** | Group id of the group | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdParticipantsAddPostRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut
-
-> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut(ctx, instanceKey, groupId).Data(data).Execute()
-
-Demote participant.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut(context.Background(), instanceKey, groupId).Data(data).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsDemotePut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-**groupId** | **string** | Group id of the group | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdParticipantsDemotePutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut
-
-> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut(ctx, instanceKey, groupId).Data(data).Execute()
-
-Promote participant.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut(context.Background(), instanceKey, groupId).Data(data).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsPromotePut`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-**groupId** | **string** | Group id of the group | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdParticipantsPromotePutRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete
-
-> APIResponse InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(ctx, instanceKey, groupId).Data(data).Execute()
-
-Remove participant.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    groupId := "groupId_example" // string | Group id of the group
-    data := *openapiclient.NewGroupUpdateParticipantsPayload() // GroupUpdateParticipantsPayload | Group update payload
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(context.Background(), instanceKey, groupId).Data(data).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-**groupId** | **string** | Group id of the group | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md) | Group update payload | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsGroupIdProfilePicPut
-
-> APIResponse InstancesInstanceKeyGroupsGroupIdProfilePicPut(ctx, instanceKey, groupId).InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest(instancesInstanceKeyGroupsGroupIdProfilePicPutRequest).Execute()
+> APIResponse SetGroupPicture(ctx, instanceKey, groupId).SetGroupPictureRequest(setGroupPictureRequest).Execute()
 
 Set group picture.
 
@@ -1081,17 +1153,17 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     groupId := "groupId_example" // string | Group id of the group
-    instancesInstanceKeyGroupsGroupIdProfilePicPutRequest := *openapiclient.NewInstancesInstanceKeyGroupsGroupIdProfilePicPutRequest("TODO") // InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest | 
+    setGroupPictureRequest := *openapiclient.NewSetGroupPictureRequest("TODO") // SetGroupPictureRequest | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsGroupIdProfilePicPut(context.Background(), instanceKey, groupId).InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest(instancesInstanceKeyGroupsGroupIdProfilePicPutRequest).Execute()
+    resp, r, err := apiClient.GroupManagementApi.SetGroupPicture(context.Background(), instanceKey, groupId).SetGroupPictureRequest(setGroupPictureRequest).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdProfilePicPut``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.SetGroupPicture``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `InstancesInstanceKeyGroupsGroupIdProfilePicPut`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsGroupIdProfilePicPut`: %v\n", resp)
+    // response from `SetGroupPicture`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.SetGroupPicture`: %v\n", resp)
 }
 ```
 
@@ -1106,14 +1178,14 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsGroupIdProfilePicPutRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiSetGroupPictureRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **instancesInstanceKeyGroupsGroupIdProfilePicPutRequest** | [**InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest**](InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest.md) |  | 
+ **setGroupPictureRequest** | [**SetGroupPictureRequest**](SetGroupPictureRequest.md) |  | 
 
 ### Return type
 
@@ -1126,78 +1198,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: */*
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## InstancesInstanceKeyGroupsInviteInfoGet
-
-> APIResponse InstancesInstanceKeyGroupsInviteInfoGet(ctx, instanceKey).InviteLink(inviteLink).Execute()
-
-Get group from invite link.
-
-
-
-### Example
-
-```go
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
-)
-
-func main() {
-    instanceKey := "instanceKey_example" // string | Instance key
-    inviteLink := "inviteLink_example" // string | The invite link to check
-
-    configuration := openapiclient.NewConfiguration()
-    apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.GroupManagementApi.InstancesInstanceKeyGroupsInviteInfoGet(context.Background(), instanceKey).InviteLink(inviteLink).Execute()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.InstancesInstanceKeyGroupsInviteInfoGet``: %v\n", err)
-        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `InstancesInstanceKeyGroupsInviteInfoGet`: APIResponse
-    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.InstancesInstanceKeyGroupsInviteInfoGet`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**instanceKey** | **string** | Instance key | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiInstancesInstanceKeyGroupsInviteInfoGetRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **inviteLink** | **string** | The invite link to check | 
-
-### Return type
-
-[**APIResponse**](APIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

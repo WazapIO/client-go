@@ -17,6 +17,7 @@ docs/ContactMessagePayload.md
 docs/ContactMessagePayloadVcard.md
 docs/FileUpload.md
 docs/GroupCreatePayload.md
+docs/GroupInviteMessagePayload.md
 docs/GroupManagementApi.md
 docs/GroupUpdateDescriptionPayload.md
 docs/GroupUpdateNamePayload.md
@@ -29,11 +30,11 @@ docs/LocationMessagePayload.md
 docs/LocationMessagePayloadLocation.md
 docs/MessageSendingApi.md
 docs/MiscellaneousApi.md
+docs/PaymentRequestPayload.md
 docs/PollMessagePayload.md
 docs/ReplyButton.md
 docs/SendAudioRequest.md
 docs/SendDocumentRequest.md
-docs/SendImageRequest.md
 docs/SendMediaPayload.md
 docs/SendVideoRequest.md
 docs/SetGroupPictureRequest.md
@@ -41,6 +42,7 @@ docs/TemplateButton.md
 docs/TemplateButtonPayload.md
 docs/TemplateButtonWithMediaPayload.md
 docs/TextMessage.md
+docs/UpdateProfilePicRequest.md
 docs/UploadMediaRequest.md
 docs/UserInfoPayload.md
 docs/WebhookPayload.md
@@ -54,6 +56,7 @@ model_contact_message_payload.go
 model_contact_message_payload_vcard.go
 model_file_upload.go
 model_group_create_payload.go
+model_group_invite_message_payload.go
 model_group_update_description_payload.go
 model_group_update_name_payload.go
 model_group_update_participants_payload.go
@@ -62,11 +65,11 @@ model_list_message_payload.go
 model_list_section.go
 model_location_message_payload.go
 model_location_message_payload_location.go
+model_payment_request_payload.go
 model_poll_message_payload.go
 model_reply_button.go
 model_send_audio_request.go
 model_send_document_request.go
-model_send_image_request.go
 model_send_media_payload.go
 model_send_video_request.go
 model_set_group_picture_request.go
@@ -74,6 +77,7 @@ model_template_button.go
 model_template_button_payload.go
 model_template_button_with_media_payload.go
 model_text_message.go
+model_update_profile_pic_request.go
 model_upload_media_request.go
 model_user_info_payload.go
 model_webhook_payload.go

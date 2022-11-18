@@ -927,12 +927,185 @@ func (a *MessageSendingApiService) SendDocumentExecute(r ApiSendDocumentRequest)
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiSendGroupInviteRequest struct {
+	ctx context.Context
+	ApiService *MessageSendingApiService
+	instanceKey string
+	data *GroupInviteMessagePayload
+}
+
+// Message data
+func (r ApiSendGroupInviteRequest) Data(data GroupInviteMessagePayload) ApiSendGroupInviteRequest {
+	r.data = &data
+	return r
+}
+
+func (r ApiSendGroupInviteRequest) Execute() (*APIResponse, *http.Response, error) {
+	return r.ApiService.SendGroupInviteExecute(r)
+}
+
+/*
+SendGroupInvite Send a group invite message
+
+Sends a group invite message to the specified number.
+Don't include "https://chat.whatsapp.com/" in the invite code.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param instanceKey Instance key
+ @return ApiSendGroupInviteRequest
+*/
+func (a *MessageSendingApiService) SendGroupInvite(ctx context.Context, instanceKey string) ApiSendGroupInviteRequest {
+	return ApiSendGroupInviteRequest{
+		ApiService: a,
+		ctx: ctx,
+		instanceKey: instanceKey,
+	}
+}
+
+// Execute executes the request
+//  @return APIResponse
+func (a *MessageSendingApiService) SendGroupInviteExecute(r ApiSendGroupInviteRequest) (*APIResponse, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *APIResponse
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MessageSendingApiService.SendGroupInvite")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/instances/{instance_key}/send/group-invite"
+	localVarPath = strings.Replace(localVarPath, "{"+"instance_key"+"}", url.PathEscape(parameterToString(r.instanceKey, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.data == nil {
+		return localVarReturnValue, nil, reportError("data is required and must be specified")
+	}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"*/*"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.data
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKeyAuth"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["Authorization"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v APIResponse
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+            		newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+            		newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiSendImageRequest struct {
 	ctx context.Context
 	ApiService *MessageSendingApiService
 	instanceKey string
 	to *string
-	sendImageRequest *SendImageRequest
+	updateProfilePicRequest *UpdateProfilePicRequest
 	caption *string
 }
 
@@ -942,8 +1115,8 @@ func (r ApiSendImageRequest) To(to string) ApiSendImageRequest {
 	return r
 }
 
-func (r ApiSendImageRequest) SendImageRequest(sendImageRequest SendImageRequest) ApiSendImageRequest {
-	r.sendImageRequest = &sendImageRequest
+func (r ApiSendImageRequest) UpdateProfilePicRequest(updateProfilePicRequest UpdateProfilePicRequest) ApiSendImageRequest {
+	r.updateProfilePicRequest = &updateProfilePicRequest
 	return r
 }
 
@@ -999,8 +1172,8 @@ func (a *MessageSendingApiService) SendImageExecute(r ApiSendImageRequest) (*API
 	if r.to == nil {
 		return localVarReturnValue, nil, reportError("to is required and must be specified")
 	}
-	if r.sendImageRequest == nil {
-		return localVarReturnValue, nil, reportError("sendImageRequest is required and must be specified")
+	if r.updateProfilePicRequest == nil {
+		return localVarReturnValue, nil, reportError("updateProfilePicRequest is required and must be specified")
 	}
 
 	localVarQueryParams.Add("to", parameterToString(*r.to, ""))
@@ -1025,7 +1198,7 @@ func (a *MessageSendingApiService) SendImageExecute(r ApiSendImageRequest) (*API
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.sendImageRequest
+	localVarPostBody = r.updateProfilePicRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

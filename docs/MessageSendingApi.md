@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**SendButtonWithMedia**](MessageSendingApi.md#SendButtonWithMedia) | **Post** /instances/{instance_key}/send/button-media | Send a button message with a media header.
 [**SendContact**](MessageSendingApi.md#SendContact) | **Post** /instances/{instance_key}/send/contact | Send a contact message.
 [**SendDocument**](MessageSendingApi.md#SendDocument) | **Post** /instances/{instance_key}/send/document | Send raw document.
+[**SendGroupInvite**](MessageSendingApi.md#SendGroupInvite) | **Post** /instances/{instance_key}/send/group-invite | Send a group invite message
 [**SendImage**](MessageSendingApi.md#SendImage) | **Post** /instances/{instance_key}/send/image | Send raw image.
 [**SendListMessage**](MessageSendingApi.md#SendListMessage) | **Post** /instances/{instance_key}/send/list | Send a List message.
 [**SendLocation**](MessageSendingApi.md#SendLocation) | **Post** /instances/{instance_key}/send/location | Send a location message.
@@ -390,9 +391,81 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## SendGroupInvite
+
+> APIResponse SendGroupInvite(ctx, instanceKey).Data(data).Execute()
+
+Send a group invite message
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    data := *openapiclient.NewGroupInviteMessagePayload() // GroupInviteMessagePayload | Message data
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MessageSendingApi.SendGroupInvite(context.Background(), instanceKey).Data(data).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.SendGroupInvite``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SendGroupInvite`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.SendGroupInvite`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSendGroupInviteRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **data** | [**GroupInviteMessagePayload**](GroupInviteMessagePayload.md) | Message data | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## SendImage
 
-> APIResponse SendImage(ctx, instanceKey).To(to).SendImageRequest(sendImageRequest).Caption(caption).Execute()
+> APIResponse SendImage(ctx, instanceKey).To(to).UpdateProfilePicRequest(updateProfilePicRequest).Caption(caption).Execute()
 
 Send raw image.
 
@@ -413,12 +486,12 @@ import (
 func main() {
     instanceKey := "instanceKey_example" // string | Instance key
     to := "to_example" // string | The recipient's number
-    sendImageRequest := *openapiclient.NewSendImageRequest("TODO") // SendImageRequest | 
+    updateProfilePicRequest := *openapiclient.NewUpdateProfilePicRequest("TODO") // UpdateProfilePicRequest | 
     caption := "caption_example" // string | Attached caption (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.MessageSendingApi.SendImage(context.Background(), instanceKey).To(to).SendImageRequest(sendImageRequest).Caption(caption).Execute()
+    resp, r, err := apiClient.MessageSendingApi.SendImage(context.Background(), instanceKey).To(to).UpdateProfilePicRequest(updateProfilePicRequest).Caption(caption).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.SendImage``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -445,7 +518,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
  **to** | **string** | The recipient&#39;s number | 
- **sendImageRequest** | [**SendImageRequest**](SendImageRequest.md) |  | 
+ **updateProfilePicRequest** | [**UpdateProfilePicRequest**](UpdateProfilePicRequest.md) |  | 
  **caption** | **string** | Attached caption | 
 
 ### Return type

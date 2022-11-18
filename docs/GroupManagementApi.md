@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**DemoteParticipant**](GroupManagementApi.md#DemoteParticipant) | **Put** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant.
 [**GetAdminGroups**](GroupManagementApi.md#GetAdminGroups) | **Get** /instances/{instance_key}/groups/admin | Get admin groups.
 [**GetAllGroups**](GroupManagementApi.md#GetAllGroups) | **Get** /instances/{instance_key}/groups/ | Get all groups.
+[**GetAllParticipants**](GroupManagementApi.md#GetAllParticipants) | **Get** /instances/{instance_key}/groups/{group_id}/participants | Get all participants.
 [**GetGroup**](GroupManagementApi.md#GetGroup) | **Get** /instances/{instance_key}/groups/{group_id} | Get group.
 [**GetGroupFromInviteLink**](GroupManagementApi.md#GetGroupFromInviteLink) | **Get** /instances/{instance_key}/groups/invite-info | Get group from invite link.
 [**GetGroupInviteCode**](GroupManagementApi.md#GetGroupInviteCode) | **Get** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code.
+[**JoinGroupWithLink**](GroupManagementApi.md#JoinGroupWithLink) | **Get** /instances/{instance_key}/groups/join | Join group with invite code.
 [**LeaveGroup**](GroupManagementApi.md#LeaveGroup) | **Delete** /instances/{instance_key}/groups/{group_id}/ | Leaves the group.
 [**PromoteParticipant**](GroupManagementApi.md#PromoteParticipant) | **Put** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant.
 [**RemoveParticipant**](GroupManagementApi.md#RemoveParticipant) | **Delete** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant.
@@ -387,6 +389,79 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetAllParticipants
+
+> APIResponse GetAllParticipants(ctx, instanceKey, groupId).Execute()
+
+Get all participants.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    groupId := "groupId_example" // string | Group id of the group
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.GetAllParticipants(context.Background(), instanceKey, groupId).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.GetAllParticipants``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAllParticipants`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.GetAllParticipants`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+**groupId** | **string** | Group id of the group | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetAllParticipantsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetGroup
 
 > APIResponse GetGroup(ctx, instanceKey, groupId).Execute()
@@ -586,6 +661,78 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## JoinGroupWithLink
+
+> APIResponse JoinGroupWithLink(ctx, instanceKey).InviteCode(inviteCode).Execute()
+
+Join group with invite code.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    inviteCode := "inviteCode_example" // string | The invite code of group you want to join
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GroupManagementApi.JoinGroupWithLink(context.Background(), instanceKey).InviteCode(inviteCode).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `GroupManagementApi.JoinGroupWithLink``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `JoinGroupWithLink`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `GroupManagementApi.JoinGroupWithLink`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiJoinGroupWithLinkRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inviteCode** | **string** | The invite code of group you want to join | 
 
 ### Return type
 

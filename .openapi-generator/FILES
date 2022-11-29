@@ -44,6 +44,7 @@ docs/TemplateButtonWithMediaPayload.md
 docs/TextMessage.md
 docs/UpdateProfilePicRequest.md
 docs/UploadMediaRequest.md
+docs/UrlMediaUploadPayload.md
 docs/UserInfoPayload.md
 docs/WebhookPayload.md
 git_push.sh
@@ -79,6 +80,7 @@ model_template_button_with_media_payload.go
 model_text_message.go
 model_update_profile_pic_request.go
 model_upload_media_request.go
+model_url_media_upload_payload.go
 model_user_info_payload.go
 model_webhook_payload.go
 response.go

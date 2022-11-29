@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**SendTextMessage**](MessageSendingApi.md#SendTextMessage) | **Post** /instances/{instance_key}/send/text | Send a text message.
 [**SendVideo**](MessageSendingApi.md#SendVideo) | **Post** /instances/{instance_key}/send/video | Send raw video.
 [**UploadMedia**](MessageSendingApi.md#UploadMedia) | **Post** /instances/{instance_key}/send/upload | Upload media.
+[**UploadMediaFromUrl**](MessageSendingApi.md#UploadMediaFromUrl) | **Post** /instances/{instance_key}/send/upload-url | Upload media from url.
 
 
 
@@ -1174,6 +1175,80 @@ Name | Type | Description  | Notes
 
  **type_** | **string** | Media type | 
  **uploadMediaRequest** | [**UploadMediaRequest**](UploadMediaRequest.md) |  | 
+
+### Return type
+
+[**APIResponse**](APIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: */*
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UploadMediaFromUrl
+
+> APIResponse UploadMediaFromUrl(ctx, instanceKey).Type_(type_).Data(data).Execute()
+
+Upload media from url.
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    instanceKey := "instanceKey_example" // string | Instance key
+    type_ := "type__example" // string | Media type
+    data := *openapiclient.NewUrlMediaUploadPayload() // UrlMediaUploadPayload | Media data
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.MessageSendingApi.UploadMediaFromUrl(context.Background(), instanceKey).Type_(type_).Data(data).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `MessageSendingApi.UploadMediaFromUrl``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UploadMediaFromUrl`: APIResponse
+    fmt.Fprintf(os.Stdout, "Response from `MessageSendingApi.UploadMediaFromUrl`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**instanceKey** | **string** | Instance key | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiUploadMediaFromUrlRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **type_** | **string** | Media type | 
+ **data** | [**UrlMediaUploadPayload**](UrlMediaUploadPayload.md) | Media data | 
 
 ### Return type
 

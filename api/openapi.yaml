@@ -10,15 +10,16 @@ servers:
 - url: /api
 paths:
   /instances/create:
-    get:
+    post:
       description: This endpoint is used to create a new WhatsApp Web instance.
       operationId: createInstance
-      parameters:
-      - description: Insert instance key if you want to provide custom key
-        in: query
-        name: instance_key
-        schema:
-          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateInstancePayload'
+        description: Instance data
+        required: true
       responses:
         "200":
           content:
@@ -55,6 +56,7 @@ paths:
       summary: Creates a new instance key.
       tags:
       - Instance
+      x-codegen-request-body-name: data
   /instances/list:
     get:
       description: Fetches the list of all Instances with login status.
@@ -2931,6 +2933,18 @@ components:
       required:
       - to
       - vcard
+      type: object
+    CreateInstancePayload:
+      example:
+        webhook_url: ""
+        instance_key: ""
+      properties:
+        instance_key:
+          example: ""
+          type: string
+        webhook_url:
+          example: ""
+          type: string
       type: object
     FileUpload:
       example:

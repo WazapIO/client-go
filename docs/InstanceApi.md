@@ -5,7 +5,7 @@ All URIs are relative to */api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**ChangeWebhookUrl**](InstanceApi.md#ChangeWebhookUrl) | **Put** /instances/{instance_key}/webhook | Change Webhook url.
-[**CreateInstance**](InstanceApi.md#CreateInstance) | **Get** /instances/create | Creates a new instance key.
+[**CreateInstance**](InstanceApi.md#CreateInstance) | **Post** /instances/create | Creates a new instance key.
 [**DeleteInstance**](InstanceApi.md#DeleteInstance) | **Delete** /instances/{instance_key}/delete | Delete Instance.
 [**GetContacts**](InstanceApi.md#GetContacts) | **Get** /instances/{instance_key}/contacts | Get contacts.
 [**GetInstance**](InstanceApi.md#GetInstance) | **Get** /instances/{instance_key}/ | Get Instance.
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## CreateInstance
 
-> APIResponse CreateInstance(ctx).InstanceKey(instanceKey).Execute()
+> APIResponse CreateInstance(ctx).Data(data).Execute()
 
 Creates a new instance key.
 
@@ -108,11 +108,11 @@ import (
 )
 
 func main() {
-    instanceKey := "instanceKey_example" // string | Insert instance key if you want to provide custom key (optional)
+    data := *openapiclient.NewCreateInstancePayload() // CreateInstancePayload | Instance data
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InstanceApi.CreateInstance(context.Background()).InstanceKey(instanceKey).Execute()
+    resp, r, err := apiClient.InstanceApi.CreateInstance(context.Background()).Data(data).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InstanceApi.CreateInstance``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,7 +133,7 @@ Other parameters are passed through a pointer to a apiCreateInstanceRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **instanceKey** | **string** | Insert instance key if you want to provide custom key | 
+ **data** | [**CreateInstancePayload**](CreateInstancePayload.md) | Instance data | 
 
 ### Return type
 
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: */*
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

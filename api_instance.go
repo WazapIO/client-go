@@ -199,12 +199,12 @@ func (a *InstanceApiService) ChangeWebhookUrlExecute(r ApiChangeWebhookUrlReques
 type ApiCreateInstanceRequest struct {
 	ctx context.Context
 	ApiService *InstanceApiService
-	instanceKey *string
+	data *CreateInstancePayload
 }
 
-// Insert instance key if you want to provide custom key
-func (r ApiCreateInstanceRequest) InstanceKey(instanceKey string) ApiCreateInstanceRequest {
-	r.instanceKey = &instanceKey
+// Instance data
+func (r ApiCreateInstanceRequest) Data(data CreateInstancePayload) ApiCreateInstanceRequest {
+	r.data = &data
 	return r
 }
 
@@ -231,7 +231,7 @@ func (a *InstanceApiService) CreateInstance(ctx context.Context) ApiCreateInstan
 //  @return APIResponse
 func (a *InstanceApiService) CreateInstanceExecute(r ApiCreateInstanceRequest) (*APIResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
 		localVarReturnValue  *APIResponse
@@ -247,12 +247,12 @@ func (a *InstanceApiService) CreateInstanceExecute(r ApiCreateInstanceRequest) (
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-
-	if r.instanceKey != nil {
-		localVarQueryParams.Add("instance_key", parameterToString(*r.instanceKey, ""))
+	if r.data == nil {
+		return localVarReturnValue, nil, reportError("data is required and must be specified")
 	}
+
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -268,6 +268,8 @@ func (a *InstanceApiService) CreateInstanceExecute(r ApiCreateInstanceRequest) (
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.data
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

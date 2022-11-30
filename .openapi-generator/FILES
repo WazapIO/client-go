@@ -15,6 +15,7 @@ docs/ButtonMessagePayload.md
 docs/ButtonMessageWithMediaPayload.md
 docs/ContactMessagePayload.md
 docs/ContactMessagePayloadVcard.md
+docs/CreateInstancePayload.md
 docs/FileUpload.md
 docs/GroupCreatePayload.md
 docs/GroupInviteMessagePayload.md
@@ -55,6 +56,7 @@ model_button_message_payload.go
 model_button_message_with_media_payload.go
 model_contact_message_payload.go
 model_contact_message_payload_vcard.go
+model_create_instance_payload.go
 model_file_upload.go
 model_group_create_payload.go
 model_group_invite_message_payload.go
